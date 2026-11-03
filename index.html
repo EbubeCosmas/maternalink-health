@@ -25,6 +25,9 @@
       }
     }
   </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js">
+    </script>
 
   <style>
     body {
@@ -2321,6 +2324,14 @@
     window.onload = function () {
       initApp();
     };
+    const { createClient } = supabase;
+const supabaseClient = createClient('https://nfidxuwrlqqhxqcyhxdd.supabase.co/rest/v1/', 'sb_publishable_GT8WDJfYXBLr9IQFRZKiXA_j812FI7w');
+
+// Example: Fetch rows from a table
+async function loadData() {
+  const { data, error } = await supabaseClient.from('your_table').select('*');
+  console.log(data, error);
+}
   </script>
 </body>
 </html>
