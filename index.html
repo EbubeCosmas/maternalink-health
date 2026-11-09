@@ -4,6 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MATERNALINK Health — Digital Maternal Screening, Referral & Follow-Up Platform</title>
+  <!-- Official MATERNALINK HEALTH Inline SVG Favicons (Prevents /favicon.ico 404 error) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M 20 88 A 50 50 0 0 1 68 11' fill='none' stroke='%2376C7BE' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M 98 32 A 50 50 0 0 1 108 58' fill='none' stroke='%23E59A34' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M 16 74 A 50 50 0 0 0 58 110' fill='none' stroke='%23198768' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 45 C 77 36, 66 34, 65 39 C 65 43, 73 45, 77 45 Z' fill='%23198768'/%3E%3Cpath d='M77 45 C 78 34, 92 31, 93 38 C 93 44, 83 46, 77 45 Z' fill='%23198768'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3Cg transform='translate(82,86) rotate(-42)' fill='none' stroke='%23198768' stroke-width='6.5'%3E%3Crect x='-32' y='-9' width='26' height='18' rx='9'/%3E%3Crect x='-13' y='-9' width='26' height='18' rx='9' stroke='%23ffffff' stroke-width='9'/%3E%3Crect x='-13' y='-9' width='26' height='18' rx='9'/%3E%3Crect x='6' y='-9' width='26' height='18' rx='9'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3C/svg%3E" />
+
+  <!-- Silence Tailwind CDN Warning in Console -->
+  <script>
+    (function () {
+      var origWarn = console.warn;
+      console.warn = function () {
+        if (arguments[0] && typeof arguments[0] === 'string' && arguments[0].indexOf('cdn.tailwindcss.com') !== -1) {
+          return;
+        }
+        return origWarn.apply(console, arguments);
+      };
+    })();
+  </script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Plus Jakarta Sans & JetBrains Mono -->
@@ -25,9 +43,6 @@
       }
     }
   </script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.min.js">
-    </script>
 
   <style>
     body {
@@ -55,23 +70,66 @@
   <!-- ============================================================================ -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-2xs no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex items-center justify-between h-16 gap-4">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-4">
         
-        <!-- Brand Identity -->
-        <div class="flex items-center gap-3 shrink-0">
-          <div class="w-10 h-10 rounded-xl bg-emerald-800 text-white flex items-center justify-center shadow-xs">
-            <i class="fa-solid fa-heart-pulse text-lg"></i>
-          </div>
-          <div>
+        <!-- Official MATERNALINK HEALTH Brand Logo (Emblem + Typography Lockup) -->
+        <a href="#" onclick="switchView('screening'); return false;" class="flex items-center gap-3 shrink-0 group focus:outline-none" aria-label="MATERNALINK HEALTH Home">
+          <svg class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 transition-transform duration-200 group-hover:scale-[1.03]" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MATERNALINK HEALTH Emblem">
+            <defs>
+              <linearGradient id="mlHeartGrad" x1="61" y1="44" x2="93" y2="76" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#F3B04E"/>
+                <stop offset="100%" stop-color="#DD8B26"/>
+              </linearGradient>
+            </defs>
+            <!-- Outer Upper-Left Soft Teal Arc -->
+            <path d="M 15 76 A 49 49 0 0 1 67 12" stroke="#78C6BE" stroke-width="5.5" stroke-linecap="round"/>
+            <!-- Outer Bottom-Left Deep Emerald-Teal Arc -->
+            <path d="M 14 70 A 49 49 0 0 0 54 109" stroke="#198768" stroke-width="6.5" stroke-linecap="round"/>
+            <!-- Outer Upper-Right Warm Gold Arc -->
+            <path d="M 96 29 A 49 49 0 0 1 108 56" stroke="#E89D38" stroke-width="5.5" stroke-linecap="round"/>
+
+            <!-- Golden Medical Cross at Top Right -->
+            <path d="M 73 12 H 79 V 18 H 85 V 24 H 79 V 30 H 73 V 24 H 67 V 18 H 73 Z" fill="#E59A34"/>
+
+            <!-- Dual Green Sprouting Leaves -->
+            <path d="M 77 45 C 76 36, 65 34, 64 40 C 64 44, 72 46, 77 45 Z" fill="#198768"/>
+            <path d="M 78 45 C 79 34, 92 30, 95 37 C 95 43, 85 46, 78 45 Z" fill="#198768"/>
+            <path d="M 77.5 46 L 77.5 36" stroke="#0D5C46" stroke-width="1.8" stroke-linecap="round"/>
+
+            <!-- Golden-Amber Care Heart -->
+            <path d="M 77.5 50 C 71.5 42.5, 61 46, 61 55.5 C 61 64.5, 74.5 71.5, 77.5 76 C 80.5 71.5, 94 64.5, 94 55.5 C 94 46, 83.5 42.5, 77.5 50 Z" fill="url(#mlHeartGrad)"/>
+
+            <!-- Mother Silhouette in Profile Cradling Baby (Deep Emerald #0D5C46) -->
+            <!-- Flowing Hair & Mother Head/Shoulder Profile -->
+            <path d="M 41 22 C 28 22, 19 34, 19 50 C 19 59, 17 65, 13 69 C 18 70, 21 68, 23 65 C 22 73, 25 81, 31 87 C 28 78, 27 68, 30 58 C 32 49, 38 41, 45 39 C 48 38, 51 40, 51 43 C 51 46, 49 48, 51 50 C 52 51, 51 53, 49 54 C 48 55, 48 57, 46 58 C 43 59, 39 57, 37 54 C 35 58, 36 64, 41 68 C 46 63, 55 54, 57 42 C 59 30, 51 22, 41 22 Z" fill="#0D5C46"/>
+            <!-- Mother's Cradling Forearm & Hand -->
+            <path d="M 28 66 C 28 77, 35 87, 44 92 L 60 80 C 58 78, 54 79, 46 84 C 39 80, 34 73, 33 65 Z" fill="#0D5C46"/>
+            <!-- Baby Head & Cradled Body -->
+            <circle cx="56" cy="66" r="5.5" fill="#0D5C46"/>
+            <path d="M 42 69 C 45 65, 51 67, 54 72 C 57 75, 62 73, 63 68 C 65 73, 62 79, 55 80 C 48 81, 43 75, 42 69 Z" fill="#0D5C46"/>
+
+            <!-- Interlocking 3-Link Referral Chain Along Bottom-Right Curve -->
+            <g transform="translate(80, 84) rotate(-42)">
+              <!-- Link 1 (Bottom-Left) -->
+              <rect x="-34" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+              <rect x="-34" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+              <!-- Link 2 (Center Interlocked) -->
+              <rect x="-14" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+              <rect x="-14" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+              <!-- Link 3 (Top-Right) -->
+              <rect x="6" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+              <rect x="6" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+            </g>
+          </svg>
+
+          <div class="flex flex-col justify-center">
             <div class="flex items-center gap-2">
-              <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900">MATERNALINK</span>
-              <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">Nigeria</span>
+              <span class="font-extrabold text-lg sm:text-xl tracking-tight leading-none" style="color: #0D5C46;">MATERNALINK</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 hidden sm:inline-block">Nigeria</span>
             </div>
-            <p class="text-[11px] text-slate-500 hidden sm:block leading-none mt-0.5">
-              Maternal Screening, Referral &amp; Follow-Up Network
-            </p>
+            <span class="font-extrabold text-[11px] sm:text-xs tracking-[0.34em] uppercase mt-1 leading-none" style="color: #D48B28;">HEALTH</span>
           </div>
-        </div>
+        </a>
 
         <!-- Primary Navigation Tabs (Desktop) -->
         <nav class="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80" aria-label="Main Navigation">
@@ -568,11 +626,41 @@
       <div id="intake-step-3" class="hidden max-w-4xl mx-auto space-y-5">
 
         <div class="bg-white rounded-2xl border-2 border-emerald-800 shadow-sm overflow-hidden">
-          <!-- Pass Header -->
+          <!-- Pass Header with Official MATERNALINK HEALTH Brand Lockup -->
           <div class="bg-emerald-900 text-white px-6 py-5 flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-200 block">MATERNALINK Digital Referral Pass</span>
-              <h2 class="text-xl font-extrabold mt-0.5">Clinically Approved Referral Recommendation</h2>
+            <div class="flex items-center gap-3.5">
+              <!-- Official Logo Badge on Pass -->
+              <div class="bg-white px-3 py-2 rounded-xl shadow-xs flex items-center gap-2.5 shrink-0 border border-emerald-200">
+                <svg class="w-10 h-10 shrink-0" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M 15 76 A 49 49 0 0 1 67 12" stroke="#78C6BE" stroke-width="5.5" stroke-linecap="round"/>
+                  <path d="M 14 70 A 49 49 0 0 0 54 109" stroke="#198768" stroke-width="6.5" stroke-linecap="round"/>
+                  <path d="M 96 29 A 49 49 0 0 1 108 56" stroke="#E89D38" stroke-width="5.5" stroke-linecap="round"/>
+                  <path d="M 73 12 H 79 V 18 H 85 V 24 H 79 V 30 H 73 V 24 H 67 V 18 H 73 Z" fill="#E59A34"/>
+                  <path d="M 77 45 C 76 36, 65 34, 64 40 C 64 44, 72 46, 77 45 Z" fill="#198768"/>
+                  <path d="M 78 45 C 79 34, 92 30, 95 37 C 95 43, 85 46, 78 45 Z" fill="#198768"/>
+                  <path d="M 77.5 50 C 71.5 42.5, 61 46, 61 55.5 C 61 64.5, 74.5 71.5, 77.5 76 C 80.5 71.5, 94 64.5, 94 55.5 C 94 46, 83.5 42.5, 77.5 50 Z" fill="#E59A34"/>
+                  <path d="M 41 22 C 28 22, 19 34, 19 50 C 19 59, 17 65, 13 69 C 18 70, 21 68, 23 65 C 22 73, 25 81, 31 87 C 28 78, 27 68, 30 58 C 32 49, 38 41, 45 39 C 48 38, 51 40, 51 43 C 51 46, 49 48, 51 50 C 52 51, 51 53, 49 54 C 48 55, 48 57, 46 58 C 43 59, 39 57, 37 54 C 35 58, 36 64, 41 68 C 46 63, 55 54, 57 42 C 59 30, 51 22, 41 22 Z" fill="#0D5C46"/>
+                  <path d="M 28 66 C 28 77, 35 87, 44 92 L 60 80 C 58 78, 54 79, 46 84 C 39 80, 34 73, 33 65 Z" fill="#0D5C46"/>
+                  <circle cx="56" cy="66" r="5.5" fill="#0D5C46"/>
+                  <path d="M 42 69 C 45 65, 51 67, 54 72 C 57 75, 62 73, 63 68 C 65 73, 62 79, 55 80 C 48 81, 43 75, 42 69 Z" fill="#0D5C46"/>
+                  <g transform="translate(80, 84) rotate(-42)">
+                    <rect x="-34" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+                    <rect x="-34" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+                    <rect x="-14" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+                    <rect x="-14" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+                    <rect x="6" y="-9" width="26" height="18" rx="9" fill="none" stroke="#ffffff" stroke-width="9"/>
+                    <rect x="6" y="-9" width="26" height="18" rx="9" fill="none" stroke="#198768" stroke-width="5.5"/>
+                  </g>
+                </svg>
+                <div class="leading-none">
+                  <span class="font-extrabold text-xs tracking-tight block" style="color: #0D5C46;">MATERNALINK</span>
+                  <span class="font-extrabold text-[8px] tracking-[0.28em] uppercase block mt-0.5" style="color: #D48B28;">HEALTH</span>
+                </div>
+              </div>
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-200 block">MATERNALINK Digital Referral Pass</span>
+                <h2 class="text-lg sm:text-xl font-extrabold mt-0.5">Clinically Approved Referral Recommendation</h2>
+              </div>
             </div>
             <div class="flex items-center gap-3">
               <div class="bg-emerald-950/90 px-3.5 py-2 rounded-xl border border-emerald-700 text-right">
@@ -1547,14 +1635,6 @@
       renderBottomAuditTable();
     }
 
-    function persistState() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState.records));
-        localStorage.setItem(AUDIT_KEY, JSON.stringify(appState.auditLogs));
-      } catch (e) {}
-      updatePendingBadges();
-    }
-
     function logAuditEvent(event, recordId, actor, detail) {
       const now = new Date();
       const stamp = `2026-10-31 ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
@@ -2301,9 +2381,11 @@
       logAuditEvent('DEIDENTIFIED_CSV_EXPORT', 'ALL_COHORT', 'Program Administrator', `Exported ${appState.records.length} de-identified maternal records`);
       renderAnalyticsDashboard();
 
-      const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows].join('\n');
+      // CSP-Safe Data URI CSV Download (Avoids blob: URL CSP violations)
+      const csvString = [headers.join(','), ...rows].join('\n');
+      const csvDataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvString);
       const link = document.createElement('a');
-      link.setAttribute('href', encodeURI(csvContent));
+      link.setAttribute('href', csvDataUri);
       link.setAttribute('download', 'maternalink_deidentified_impact_report.csv');
       document.body.appendChild(link);
       link.click();
@@ -2324,14 +2406,6 @@
     window.onload = function () {
       initApp();
     };
-    const { createClient } = supabase;
-const supabaseClient = createClient('https://nfidxuwrlqqhxqcyhxdd.supabase.co/rest/v1/', 'sb_publishable_GT8WDJfYXBLr9IQFRZKiXA_j812FI7w');
-
-// Example: Fetch rows from a table
-async function loadData() {
-  const { data, error } = await supabaseClient.from('your_table').select('*');
-  console.log(data, error);
-}
   </script>
 </body>
 </html>
