@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MATERNALINK Health — Digital Maternal Screening, Referral & Follow-Up Platform</title>
-
+  <!-- Official MATERNALINK HEALTH Inline SVG Favicons (Prevents /favicon.ico 404 error) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M 20 88 A 50 50 0 0 1 68 11' fill='none' stroke='%2376C7BE' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M 98 32 A 50 50 0 0 1 108 58' fill='none' stroke='%23E59A34' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M 16 74 A 50 50 0 0 0 58 110' fill='none' stroke='%23198768' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 45 C 77 36, 66 34, 65 39 C 65 43, 73 45, 77 45 Z' fill='%23198768'/%3E%3Cpath d='M77 45 C 78 34, 92 31, 93 38 C 93 44, 83 46, 77 45 Z' fill='%23198768'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3Cg transform='translate(82,86) rotate(-42)' fill='none' stroke='%23198768' stroke-width='6.5'%3E%3Crect x='-32' y='-9' width='26' height='18' rx='9'/%3E%3Crect x='-13' y='-9' width='26' height='18' rx='9' stroke='%23ffffff' stroke-width='9'/%3E%3Crect x='-13' y='-9' width='26' height='18' rx='9'/%3E%3Crect x='6' y='-9' width='26' height='18' rx='9'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23ffffff'/%3E%3Cpath d='M74 14 h6 v6 h6 v6 h-6 v6 h-6 v-6 h-6 v-6 h6 z' fill='%23E59A34'/%3E%3Cpath d='M77 49 C 71 42, 61 46, 61 55 C 61 64, 77 72, 77 76 C 77 72, 93 64, 93 55 C 93 46, 83 42, 77 49 Z' fill='%23E59A34'/%3E%3Cpath d='M36 26 C 24 28, 18 42, 20 58 C 21 68, 26 78, 34 86 C 30 74, 29 62, 33 52 C 36 45, 42 44, 45 48 C 47 51, 44 56, 48 60 C 52 57, 56 50, 56 42 C 56 31, 47 24, 36 26 Z' fill='%230D5C46'/%3E%3C/svg%3E" />
 
-
+  <!-- Silence Tailwind CDN Warning in Console -->
   <script>
     (function () {
       var origWarn = console.warn;
@@ -56,6 +56,11 @@
     @keyframes pulseHighlight {
       0% { background-color: #d1fae5; }
       100% { background-color: transparent; }
+    }
+    input, select, textarea {
+      box-sizing: border-box;
+      max-width: 100%;
+      min-width: 0;
     }
     @media print {
       .no-print { display: none !important; }
@@ -242,7 +247,7 @@
           </div>
           <div class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 shrink-0">
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Unique Patient ID</span>
-            <span id="regPatientIdDisplay" class="font-mono text-sm font-bold text-emerald-800">ML-NG-2026-4891</span>
+            <span id="regPatientIdDisplay" class="font-mono text-sm font-bold text-emerald-800">ML-NG-2026-74829</span>
           </div>
         </div>
 
@@ -388,7 +393,7 @@
 
             <div>
               <label for="regPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">WhatsApp / Mobile Number</label>
-              <input type="tel" id="regPhone" required placeholder="e.g. 0803 555 0190" value="0803 555 0190" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-medium bg-white" />
+              <input type="tel" id="regPhone" required placeholder="e.g. 0803 482 9174" value="0803 482 9174" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-medium bg-white" />
             </div>
 
             <div>
@@ -441,47 +446,68 @@
             <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Clinically reviewed decision-support assessment for maternal anaemia, danger signs, and care access.</p>
           </div>
           <span id="step2PatientBadge" class="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200">
-            ML-NG-2026-4891
+            ML-NG-2026-74829
           </span>
         </div>
 
         <form onsubmit="submitStep2Questionnaire(event)" class="p-6 space-y-7">
 
           <!-- Section A: Anaemia-Related Symptom Screening -->
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
+          <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/30 border border-amber-200/80 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
               <div>
                 <h3 class="text-sm sm:text-base font-extrabold text-slate-900">A. Anaemia-Related Symptom Screening</h3>
-                <p class="text-xs text-slate-500">Select any symptoms experienced consistently over the past 14 days.</p>
+                <p class="text-xs text-slate-500">Select any symptoms experienced consistently over the past 14 days, or choose "None of the above".</p>
               </div>
-              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200">Haemoglobin / PCV Risk</span>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-200">Haemoglobin / PCV Risk</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-medium text-slate-800">
-              <label class="p-3.5 border rounded-xl flex items-start gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50 transition">
-                <input type="checkbox" value="Persistent fatigue or physical weakness" checked class="sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-amber-50/40 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/60 transition">
+                <input type="checkbox" value="Persistent fatigue or physical weakness" checked onchange="handleSpecificSymptomToggle('anaemia')" class="anaemia-chk sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
                 <span>Persistent fatigue, exhaustion, or unusual physical weakness</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-start gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50 transition">
-                <input type="checkbox" value="Pale conjunctiva, palms, or nail beds" checked class="sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-amber-50/40 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/60 transition">
+                <input type="checkbox" value="Pale conjunctiva, palms, or nail beds" checked onchange="handleSpecificSymptomToggle('anaemia')" class="anaemia-chk sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
                 <span>Noticeably pale inner eyelids, palms, tongue, or nail beds</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-start gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50 transition">
-                <input type="checkbox" value="Frequent dizziness or lightheadedness" class="sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-amber-50/40 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/60 transition">
+                <input type="checkbox" value="Frequent dizziness or lightheadedness" onchange="handleSpecificSymptomToggle('anaemia')" class="anaemia-chk sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
                 <span>Frequent dizziness, lightheadedness, or near-fainting spells</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-start gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50 transition">
-                <input type="checkbox" value="Shortness of breath on mild exertion" class="sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-amber-50/40 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/60 transition">
+                <input type="checkbox" value="Shortness of breath on mild exertion" onchange="handleSpecificSymptomToggle('anaemia')" class="anaemia-chk sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
                 <span>Shortness of breath or rapid heartbeat during light activity</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-start gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/50 transition sm:col-span-2">
-                <input type="checkbox" value="Pica cravings (clay/nzu, chalk, or ice)" class="sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-amber-50/40 has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50/60 transition sm:col-span-2">
+                <input type="checkbox" value="Pica cravings (clay/nzu, chalk, or ice)" onchange="handleSpecificSymptomToggle('anaemia')" class="anaemia-chk sym-anaemia mt-0.5 w-4 h-4 rounded text-amber-600" />
                 <span>Unusual cravings to eat non-food items such as white clay (<em>nzu</em>), soil, chalk, or ice (Pica)</span>
               </label>
+
+              <!-- None of the above option for Section A -->
+              <label class="p-3.5 bg-white border-2 border-dashed border-emerald-400 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-emerald-50/40 has-[:checked]:border-solid has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/80 transition sm:col-span-2">
+                <input type="checkbox" id="none_anaemia_chk" onchange="handleNoneSymptomToggle('anaemia')" class="mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-emerald-950 block">None of the above anaemia symptoms</span>
+                  <span class="text-xs text-slate-600">I do not have any of the listed anaemia symptoms above</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Immediate Follow-Up Text Box inside Section A -->
+            <div id="section_a_feeling_box" class="hidden p-4 rounded-xl bg-white border-2 border-emerald-600/80 space-y-2 shadow-2xs">
+              <div class="flex items-center justify-between gap-2">
+                <label for="feeling_notes_a" class="text-xs sm:text-sm font-extrabold text-emerald-950 flex items-center gap-2">
+                  <i class="fa-solid fa-comment-medical text-emerald-700"></i>
+                  <span>How are you feeling today? Please describe your energy levels or how your body feels in your own words</span>
+                </label>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">Section A Note</span>
+              </div>
+              <textarea id="feeling_notes_a" rows="2" placeholder="e.g. My energy level is good during the day, only mild tiredness in the evening after household chores..." class="w-full border border-emerald-300 rounded-xl p-3 text-xs sm:text-sm text-slate-900 bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
             </div>
           </div>
 
@@ -493,7 +519,7 @@
                   <i class="fa-solid fa-triangle-exclamation text-rose-600"></i>
                   <span>B. Obstetric &amp; Postpartum Warning Sign Assessment</span>
                 </h3>
-                <p class="text-xs text-rose-800">Select any urgent danger signs present right now.</p>
+                <p class="text-xs text-rose-800">Select any urgent danger signs present right now, or select "None of the above".</p>
               </div>
               <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-rose-100 text-rose-900 border border-rose-300">Red-Flag Protocol</span>
             </div>
@@ -509,101 +535,178 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-medium text-rose-950">
               <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
-                <input type="checkbox" value="Vaginal bleeding" onchange="evaluateLiveWarningSigns()" class="sym-danger w-4 h-4 rounded text-rose-600" />
+                <input type="checkbox" value="Vaginal bleeding" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
                 <span>Any vaginal bleeding or heavy spotting</span>
               </label>
 
               <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
-                <input type="checkbox" value="Severe headache with blurred vision" onchange="evaluateLiveWarningSigns()" class="sym-danger w-4 h-4 rounded text-rose-600" />
+                <input type="checkbox" value="Severe headache with blurred vision" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
                 <span>Severe persistent headache or blurred vision</span>
               </label>
 
               <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
-                <input type="checkbox" value="Convulsions or sudden facial/hand oedema" onchange="evaluateLiveWarningSigns()" class="sym-danger w-4 h-4 rounded text-rose-600" />
+                <input type="checkbox" value="Convulsions or sudden facial/hand oedema" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
                 <span>Convulsions/fits or sudden swelling of face and hands</span>
               </label>
 
               <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
-                <input type="checkbox" value="High fever with chills or severe abdominal pain" onchange="evaluateLiveWarningSigns()" class="sym-danger w-4 h-4 rounded text-rose-600" />
+                <input type="checkbox" value="High fever with chills or severe abdominal pain" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
                 <span>High fever with chills or severe abdominal pain</span>
               </label>
 
-              <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition sm:col-span-2">
-                <input type="checkbox" value="Noticeably reduced fetal movement or premature fluid leakage" onchange="evaluateLiveWarningSigns()" class="sym-danger w-4 h-4 rounded text-rose-600" />
-                <span>Noticeably reduced baby movement or water breaking before labour</span>
+              <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
+                <input type="checkbox" value="Noticeably reduced fetal movement" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
+                <span>Noticeably reduced or absent baby movement</span>
               </label>
+
+              <label class="p-3 bg-white border border-rose-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-rose-50 has-[:checked]:border-rose-600 has-[:checked]:bg-rose-100/60 transition">
+                <input type="checkbox" value="Premature fluid leakage / water breaking before labour" onchange="handleSpecificSymptomToggle('danger')" class="danger-chk sym-danger w-4 h-4 rounded text-rose-600" />
+                <span>Premature fluid leakage or water breaking before labour</span>
+              </label>
+
+              <!-- None of the above option for Section B -->
+              <label class="p-3 bg-white border-2 border-dashed border-emerald-400 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-emerald-50/60 has-[:checked]:border-solid has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50 transition sm:col-span-2">
+                <input type="checkbox" id="none_danger_chk" onchange="handleNoneSymptomToggle('danger')" class="mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-emerald-950 block">None of the above danger signs</span>
+                  <span class="text-xs text-slate-600">I do not have any urgent obstetric warning signs right now</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Immediate Follow-Up Text Box inside Section B -->
+            <div id="section_b_feeling_box" class="hidden p-4 rounded-xl bg-white border-2 border-emerald-600/80 space-y-2 shadow-2xs">
+              <div class="flex items-center justify-between gap-2">
+                <label for="feeling_notes_b" class="text-xs sm:text-sm font-extrabold text-emerald-950 flex items-center gap-2">
+                  <i class="fa-solid fa-heart-pulse text-emerald-700"></i>
+                  <span>Describe how you and your baby are feeling today or any mild symptoms you want the midwife to know</span>
+                </label>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">Section B Note</span>
+              </div>
+              <textarea id="feeling_notes_b" rows="2" placeholder="e.g. Baby is kicking normally; I only have mild occasional backache or mild morning nausea..." class="w-full border border-emerald-300 rounded-xl p-3 text-xs sm:text-sm text-slate-900 bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
             </div>
           </div>
 
-          <!-- Section C: Antenatal Care (ANC) & Recommended Test History -->
-          <div class="space-y-3">
-            <div>
-              <h3 class="text-sm sm:text-base font-extrabold text-slate-900">C. Antenatal Care &amp; Recommended Test History</h3>
-              <p class="text-xs text-slate-500">Record prior clinic attendance, Packed Cell Volume (PCV) testing, and prophylaxis history.</p>
+          <!-- Section C: Antenatal Care (ANC), Supplementation & Diagnostic Test History -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="text-sm sm:text-base font-extrabold text-slate-900">C. Antenatal Care, Supplementation &amp; Diagnostic Test History</h3>
+                <p class="text-xs text-slate-500">Check completed care and enter your ANC visits or blood test (PCV %), or select "None" below if you have not had any yet.</p>
+              </div>
+              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white text-slate-700 border border-slate-200">ANC &amp; Lab History</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 text-xs sm:text-sm">
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <label for="scrAncVisits" class="block font-bold text-slate-700 mb-1.5">ANC Visits Attended</label>
-                <select id="scrAncVisits" class="w-full border border-slate-300 rounded-lg px-2.5 py-2 bg-white font-semibold">
-                  <option value="0">0 visits (None yet)</option>
-                  <option value="1" selected>1 visit</option>
-                  <option value="2-3">2–3 visits</option>
-                  <option value="4+">4 or more visits</option>
-                </select>
+            <!-- Checkboxes for ANC, IFA, and IPTp -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-medium text-slate-800">
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-2.5 cursor-pointer hover:bg-emerald-50/30 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50 transition">
+                <input type="checkbox" id="chk_anc_attended" checked onchange="handleSpecificSymptomToggle('anc')" class="anc-chk mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-slate-900 block">Attended ANC Clinic</span>
+                  <span class="text-[11px] text-slate-500">At least 1 antenatal visit</span>
+                </div>
+              </label>
+
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-2.5 cursor-pointer hover:bg-emerald-50/30 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50 transition">
+                <input type="checkbox" id="chk_ifa_taken" onchange="handleSpecificSymptomToggle('anc')" class="anc-chk mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-slate-900 block">Taking Daily Iron-Folic Acid</span>
+                  <span class="text-[11px] text-slate-500">Daily blood-building tablets</span>
+                </div>
+              </label>
+
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-start gap-2.5 cursor-pointer hover:bg-emerald-50/30 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50 transition">
+                <input type="checkbox" id="chk_iptp_taken" checked onchange="handleSpecificSymptomToggle('anc')" class="anc-chk mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-slate-900 block">Received IPTp Malaria Dose</span>
+                  <span class="text-[11px] text-slate-500">Antenatal malaria prevention</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Numeric Inputs for ANC Visit Count & Last Known PCV % -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <label for="inp_anc_count" class="block font-bold text-slate-700 mb-1.5">Number of ANC Visits Attended</label>
+                <input type="number" id="inp_anc_count" min="0" max="20" value="1" oninput="handleSpecificSymptomToggle('anc')" placeholder="e.g. 1" class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white font-semibold" />
               </div>
 
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <label for="scrPriorPcv" class="block font-bold text-slate-700 mb-1.5">Last Blood Test (PCV %)</label>
-                <input type="number" id="scrPriorPcv" min="10" max="55" step="0.5" placeholder="Unknown / Not tested" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white font-semibold" />
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                <label for="inp_last_pcv" class="block font-bold text-slate-700 mb-1.5">Last Known Blood Test (PCV %)</label>
+                <input type="number" id="inp_last_pcv" min="10" max="55" step="0.5" oninput="handleSpecificSymptomToggle('anc')" placeholder="Leave blank if not tested yet" class="w-full border border-slate-300 rounded-lg px-3 py-2 bg-white font-semibold" />
               </div>
+            </div>
 
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <label for="scrIfaStatus" class="block font-bold text-slate-700 mb-1.5">Iron-Folic Acid (IFA) Use</label>
-                <select id="scrIfaStatus" class="w-full border border-slate-300 rounded-lg px-2.5 py-2 bg-white font-semibold">
-                  <option value="Not taking IFA" selected>Not taking daily IFA</option>
-                  <option value="Taking irregularly">Taking irregularly</option>
-                  <option value="Taking daily">Taking daily as prescribed</option>
-                </select>
+            <!-- None option for Section C (No ANC, No Supplements, or No Blood Test Done Yet) -->
+            <label class="p-3.5 bg-white border-2 border-dashed border-emerald-400 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-emerald-50/40 has-[:checked]:border-solid has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/80 transition">
+              <input type="checkbox" id="none_anc_chk" onchange="handleNoneSymptomToggle('anc')" class="mt-0.5 w-4 h-4 rounded text-emerald-700" />
+              <div>
+                <span class="font-bold text-emerald-950 text-xs sm:text-sm block">None — I have not attended ANC, taken supplements, or done any blood test yet</span>
+                <span class="text-xs text-slate-600">Select this if you have not had any antenatal clinic checkup or blood test during this pregnancy</span>
               </div>
+            </label>
 
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <label for="scrMalariaIptp" class="block font-bold text-slate-700 mb-1.5">Malaria Prophylaxis (IPTp)</label>
-                <select id="scrMalariaIptp" class="w-full border border-slate-300 rounded-lg px-2.5 py-2 bg-white font-semibold">
-                  <option value="No IPTp dose yet">No IPTp-SP dose yet</option>
-                  <option value="At least 1 dose received" selected>1+ IPTp-SP dose received</option>
-                </select>
+            <!-- Immediate Follow-Up Text Box inside Section C -->
+            <div id="section_c_feeling_box" class="hidden p-4 rounded-xl bg-white border-2 border-emerald-600/80 space-y-2 shadow-2xs">
+              <div class="flex items-center justify-between gap-2">
+                <label for="feeling_notes_c" class="text-xs sm:text-sm font-extrabold text-emerald-950 flex items-center gap-2">
+                  <i class="fa-solid fa-flask-vial text-emerald-700"></i>
+                  <span>Please share why you have not had a test or clinic visit yet, or how you have been managing your pregnancy</span>
+                </label>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">Section C Note</span>
               </div>
+              <textarea id="feeling_notes_c" rows="2" placeholder="e.g. I just found out I am pregnant / I have been taking local herbs or over-the-counter multivitamins and now want to register for proper blood testing..." class="w-full border border-emerald-300 rounded-xl p-3 text-xs sm:text-sm text-slate-900 bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
             </div>
           </div>
 
           <!-- Section D: Healthcare Access Barriers -->
-          <div class="space-y-3">
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200 space-y-3">
             <div>
               <h3 class="text-sm sm:text-base font-extrabold text-slate-900">D. Identification of Barriers to Accessing Healthcare</h3>
-              <p class="text-xs text-slate-500">Select any challenges affecting your ability to attend antenatal visits or complete blood tests.</p>
+              <p class="text-xs text-slate-500">Select any challenges affecting your ability to attend antenatal visits or complete blood tests, or choose "None of the above barriers".</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-medium text-slate-800">
-              <label class="p-3.5 border rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
-                <input type="checkbox" id="barCost" checked class="w-4 h-4 rounded text-emerald-700" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
+                <input type="checkbox" id="barCost" checked onchange="handleSpecificSymptomToggle('barrier')" class="barrier-chk w-4 h-4 rounded text-emerald-700" />
                 <span>Out-of-pocket cost for lab tests, ultrasound, or medicines</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
-                <input type="checkbox" id="barTransport" checked class="w-4 h-4 rounded text-emerald-700" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
+                <input type="checkbox" id="barTransport" checked onchange="handleSpecificSymptomToggle('barrier')" class="barrier-chk w-4 h-4 rounded text-emerald-700" />
                 <span>Distance to facility or high transport fare</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
-                <input type="checkbox" id="barWait" class="w-4 h-4 rounded text-emerald-700" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
+                <input type="checkbox" id="barWait" onchange="handleSpecificSymptomToggle('barrier')" class="barrier-chk w-4 h-4 rounded text-emerald-700" />
                 <span>Long clinic waiting times or staff shortage</span>
               </label>
 
-              <label class="p-3.5 border rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
-                <input type="checkbox" id="barPermission" class="w-4 h-4 rounded text-emerald-700" />
+              <label class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-50 has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/50">
+                <input type="checkbox" id="barPermission" onchange="handleSpecificSymptomToggle('barrier')" class="barrier-chk w-4 h-4 rounded text-emerald-700" />
                 <span>Need spouse/family permission or childcare support</span>
               </label>
+
+              <!-- None of the above option for Section D -->
+              <label class="p-3.5 bg-white border-2 border-dashed border-emerald-400 rounded-xl flex items-start gap-3 cursor-pointer hover:bg-emerald-50/40 has-[:checked]:border-solid has-[:checked]:border-emerald-700 has-[:checked]:bg-emerald-50/80 transition sm:col-span-2">
+                <input type="checkbox" id="none_barrier_chk" onchange="handleNoneSymptomToggle('barrier')" class="mt-0.5 w-4 h-4 rounded text-emerald-700" />
+                <div>
+                  <span class="font-bold text-emerald-950 block">None of the above barriers</span>
+                  <span class="text-xs text-slate-600">I do not face any of the listed healthcare access barriers above</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Immediate Follow-Up Text Box inside Section D -->
+            <div id="section_d_feeling_box" class="hidden p-4 rounded-xl bg-white border-2 border-emerald-600/80 space-y-2 shadow-2xs">
+              <div class="flex items-center justify-between gap-2">
+                <label for="feeling_notes_d" class="text-xs sm:text-sm font-extrabold text-emerald-950 flex items-center gap-2">
+                  <i class="fa-solid fa-hands-holding-child text-emerald-700"></i>
+                  <span>Please share how you feel about visiting a clinic or any other support that would help you</span>
+                </label>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">Section D Note</span>
+              </div>
+              <textarea id="feeling_notes_d" rows="2" placeholder="e.g. I live close to the health centre and my family supports me; I prefer morning appointments or weekend pharmacy refills..." class="w-full border border-emerald-300 rounded-xl p-3 text-xs sm:text-sm text-slate-900 bg-emerald-50/20 focus:outline-none focus:ring-2 focus:ring-emerald-600"></textarea>
             </div>
           </div>
 
@@ -680,6 +783,14 @@
               <!-- Populated dynamically -->
             </div>
 
+            <!-- Mother's Self-Reported Feeling Description (Shown when entered) -->
+            <div id="passFeelingNotesBox" class="hidden p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 text-xs sm:text-sm text-slate-800">
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 block mb-1">
+                <i class="fa-solid fa-comment-medical mr-1"></i>Mother's Description of How She Feels
+              </span>
+              <p id="passFeelingNotesText" class="italic text-slate-700"></p>
+            </div>
+
             <!-- Patient Summary & QR Verification Graphic -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
               <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
@@ -735,13 +846,13 @@
             <div class="p-5 rounded-xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-800 block">Receiving Participating Healthcare Facility</span>
-                <h3 id="passFacilityName" class="text-base sm:text-lg font-extrabold text-slate-900 mt-0.5">Elelenwo Primary Health Centre</h3>
-                <p id="passFacilityMeta" class="text-xs text-slate-600 mt-0.5">Elelenwo Station Road, Obio-Akpor • Point-of-Care PCV Lab &amp; ANC Clinic • Tel: +234 803 000 1004</p>
+                <h3 id="passFacilityName" class="text-base sm:text-lg font-extrabold text-slate-900 mt-0.5">Elelenwo Central Model Primary Health Centre</h3>
+                <p id="passFacilityMeta" class="text-xs text-slate-600 mt-0.5">Elelenwo Station Road, Obio-Akpor • Point-of-Care PCV Lab &amp; ANC Clinic • Tel: +234 803 741 8294</p>
               </div>
 
               <div class="no-print shrink-0">
                 <label for="passChangeFacility" class="block text-[11px] font-bold text-slate-600 mb-1">Switch Participating Facility:</label>
-                <select id="passChangeFacility" onchange="updatePassFacility(this.value)" class="border border-emerald-300 rounded-lg px-3 py-2 text-xs font-bold bg-white text-slate-900">
+                <select id="passChangeFacility" onchange="updatePassFacility(this.value)" class="border border-emerald-300 rounded-lg px-3 py-2 text-xs font-bold bg-white text-slate-900 max-w-xs">
                   <!-- Populated from facilities directory -->
                 </select>
               </div>
@@ -786,48 +897,68 @@
     <!-- ========================================================================== -->
     <section id="view-portal" class="hidden space-y-6">
 
-      <!-- Portal Header & Filter Controls -->
-      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs space-y-4">
+      <!-- Portal Header & Dedicated Non-Overlapping Filter Bar -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs">
+        <!-- Row 1: Title, Subtitle & Actions -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
+          <div class="min-w-0">
             <h1 class="text-lg sm:text-xl font-extrabold text-slate-900">Healthcare Worker &amp; Facility Referral Queue</h1>
             <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Verify referral attendance, record Packed Cell Volume (PCV) lab results, escalate high-risk cases, and send WhatsApp/SMS follow-up reminders.</p>
           </div>
-          <button onclick="switchView('screening')" class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs shrink-0 transition">
-            + New Patient Screening
-          </button>
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <button type="button" onclick="clearPortalFilters()" class="px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <i class="fa-solid fa-rotate-left text-[11px]"></i>
+              <span>Reset Filters</span>
+            </button>
+            <button type="button" onclick="switchView('screening')" class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs transition flex items-center gap-1.5">
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              <span>New Patient Screening</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Search & Filter Bar -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
-          <div class="relative">
-            <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs absolute left-3.5 top-3.5"></i>
-            <input type="text" id="portalSearchInput" oninput="renderPortalQueue()" placeholder="Search ID, Token, Facility, State, or LGA..." class="w-full pl-9 pr-3.5 py-2.5 border border-slate-300 rounded-xl text-xs sm:text-sm bg-white" />
-          </div>
+        <!-- Row 2: Full-Width 12-Column Filter Bar (Never Overlaps) -->
+        <div class="w-full bg-slate-50/90 border border-slate-200/90 rounded-xl p-4 mt-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+            <!-- Column 1: Search Input -->
+            <div class="sm:col-span-2 lg:col-span-4 min-w-0">
+              <label for="portalSearchInput" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Search Patient, Token, or Facility</label>
+              <div class="relative min-w-0">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                <input type="text" id="portalSearchInput" oninput="renderPortalQueue()" placeholder="Search ID, Token, Hospital, or LGA..." class="w-full box-border pl-10 pr-4 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate" />
+              </div>
+            </div>
 
-          <div>
-            <select id="portalStateFilter" onchange="renderPortalQueue()" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-semibold bg-white">
-              <option value="all">All Nigerian States (36 + FCT)</option>
-            </select>
-          </div>
+            <!-- Column 2: Nigerian State Filter -->
+            <div class="lg:col-span-3 min-w-0">
+              <label for="portalStateFilter" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Nigerian State (36 + FCT)</label>
+              <select id="portalStateFilter" onchange="renderPortalQueue()" class="w-full box-border px-3.5 py-2.5 text-sm font-semibold bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate">
+                <option value="all">All Nigerian States (36 + FCT)</option>
+              </select>
+            </div>
 
-          <div>
-            <select id="portalUrgencyFilter" onchange="renderPortalQueue()" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-semibold bg-white">
-              <option value="all">All Urgency Levels</option>
-              <option value="emergency">Urgent Emergency (CEmONC)</option>
-              <option value="priority">Priority Anaemia / ANC</option>
-              <option value="routine">Routine Care</option>
-            </select>
-          </div>
+            <!-- Column 3: Urgency Level Filter -->
+            <div class="lg:col-span-2 min-w-0">
+              <label for="portalUrgencyFilter" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Clinical Urgency</label>
+              <select id="portalUrgencyFilter" onchange="renderPortalQueue()" class="w-full box-border px-3.5 py-2.5 text-sm font-semibold bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate">
+                <option value="all">All Urgency Levels</option>
+                <option value="emergency">Urgent Emergency (CEmONC)</option>
+                <option value="priority">Priority Anaemia / ANC</option>
+                <option value="routine">Routine Care</option>
+              </select>
+            </div>
 
-          <div>
-            <select id="portalStatusFilter" onchange="renderPortalQueue()" class="w-full border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-semibold bg-white">
-              <option value="all">All Referral Statuses</option>
-              <option value="pending">Pending Facility Arrival</option>
-              <option value="attended">Attended Clinic</option>
-              <option value="completed">Testing &amp; Care Completed</option>
-              <option value="escalated">Escalated to Medical Officer</option>
-            </select>
+            <!-- Column 4: Referral Attendance Status Filter -->
+            <div class="lg:col-span-3 min-w-0">
+              <label for="portalStatusFilter" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Referral &amp; Lab Status</label>
+              <select id="portalStatusFilter" onchange="renderPortalQueue()" class="w-full box-border px-3.5 py-2.5 text-sm font-semibold bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate">
+                <option value="all">All Referral Statuses</option>
+                <option value="pending">Pending Facility Arrival</option>
+                <option value="attended">Attended Clinic</option>
+                <option value="completed">Testing &amp; Care Completed</option>
+                <option value="escalated">Escalated to Medical Officer</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -861,26 +992,77 @@
     <!-- ========================================================================== -->
     <section id="view-facilities" class="hidden space-y-6">
 
-      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900">Participating Healthcare Facility Directory</h1>
-          <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Verified Primary Health Centres (PHCs), CEmONC Referral Hospitals, and Community Pharmacies across Nigeria.</p>
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-2xs">
+        <!-- Row 1: Section Title, Description & Summary Badge -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2.5">
+              <h1 class="text-lg sm:text-xl font-extrabold text-slate-900">Participating Healthcare Facility Directory</h1>
+              <span id="facilitiesTotalBadge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-900 border border-emerald-300">296 Verified Facilities • 36 States + FCT</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">8 verified participating hospitals, Primary Health Centres (PHCs), and maternal pharmacies in every State across all 36 Nigerian States + FCT Abuja.</p>
+          </div>
+          <div class="shrink-0">
+            <button type="button" onclick="clearFacilityFilters()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <i class="fa-solid fa-rotate-left text-[11px]"></i>
+              <span>Reset Filters</span>
+            </button>
+          </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full lg:w-auto">
-          <select id="facilityStateFilter" onchange="renderFacilitiesDirectory()" class="w-full sm:w-56 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold bg-white">
-            <option value="all">All States (Nationwide)</option>
-          </select>
-          <select id="facilityTypeFilter" onchange="renderFacilitiesDirectory()" class="w-full sm:w-56 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold bg-white">
-            <option value="all">All Facility Tiers</option>
-            <option value="Primary Health Centre">Primary Health Centres (PHC)</option>
-            <option value="CEmONC Referral Hospital">CEmONC Referral Hospitals</option>
-            <option value="Community Pharmacy">Participating Pharmacies</option>
-          </select>
+
+        <!-- Row 2: Dedicated Full-Width 12-Column Filter Toolbar (Never Overlaps) -->
+        <div class="w-full bg-slate-50/90 border border-slate-200/90 rounded-xl p-4 mt-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+            <!-- Column 1 (lg:col-span-5): Search Input -->
+            <div class="sm:col-span-2 lg:col-span-5 min-w-0">
+              <label for="facilitySearchInput" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Search Hospital, LGA, or Address</label>
+              <div class="relative min-w-0">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                <input type="text" id="facilitySearchInput" oninput="resetFacilityPageAndRender()" placeholder="Search hospital name, LGA, state, or road..." class="w-full box-border pl-10 pr-4 py-2.5 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate" />
+              </div>
+            </div>
+
+            <!-- Column 2 (lg:col-span-4): Nigerian State Select -->
+            <div class="lg:col-span-4 min-w-0">
+              <label for="facilityStateFilter" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Nigerian State (All 36 States + FCT)</label>
+              <select id="facilityStateFilter" onchange="resetFacilityPageAndRender()" class="w-full box-border px-3.5 py-2.5 text-sm font-semibold bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate">
+                <option value="all">All 36 States + FCT (296 Facilities)</option>
+              </select>
+            </div>
+
+            <!-- Column 3 (lg:col-span-3): Facility Care Tier Select -->
+            <div class="lg:col-span-3 min-w-0">
+              <label for="facilityTypeFilter" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">Facility Care Tier</label>
+              <select id="facilityTypeFilter" onchange="resetFacilityPageAndRender()" class="w-full box-border px-3.5 py-2.5 text-sm font-semibold bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 truncate">
+                <option value="all">All Facility Tiers</option>
+                <option value="CEmONC Referral Hospital">CEmONC &amp; Specialist Hospitals</option>
+                <option value="Primary Health Centre">Primary Health Centres (PHC)</option>
+                <option value="Community Pharmacy">Participating Pharmacies</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div id="facilitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Non-Overlapping State-Grouped Responsive Grid -->
+      <div id="facilitiesGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
         <!-- Populated by JS -->
+      </div>
+
+      <!-- Clean Pagination Bar (24 Facilities per Page with Previous / Next Controls) -->
+      <div id="facilitiesPaginationBar" class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white rounded-2xl p-4 sm:px-6 border border-slate-200 shadow-2xs">
+        <span id="facilitiesShowingCount" class="text-xs sm:text-sm font-semibold text-slate-600">Showing facilities</span>
+        <div class="flex items-center gap-2">
+          <button id="facilitiesPrevBtn" type="button" onclick="changeFacilitiesPage(-1)" class="px-4 py-2 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs sm:text-sm disabled:opacity-40 disabled:pointer-events-none transition flex items-center gap-1.5">
+            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+            <span>Previous</span>
+          </button>
+          <span id="facilitiesPageIndicator" class="px-3.5 py-2 rounded-xl bg-slate-100 text-slate-800 font-extrabold text-xs sm:text-sm">Page 1 of 13</span>
+          <button id="facilitiesNextBtn" type="button" onclick="changeFacilitiesPage(1)" class="px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm disabled:opacity-40 disabled:pointer-events-none transition flex items-center gap-1.5">
+            <span>Next</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
       </div>
 
     </section>
@@ -995,14 +1177,20 @@
       <form onsubmit="saveCaseUpdates(event)" class="p-6 space-y-5 text-xs sm:text-sm max-h-[82vh] overflow-y-auto">
         
         <!-- Patient Summary Strip -->
-        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <strong id="modalStageAndLga" class="text-slate-900 block">28 Weeks Pregnant • Obio-Akpor</strong>
-            <span id="modalSymptomsText" class="text-xs text-slate-600">Persistent fatigue, Pale conjunctiva/palms</span>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <strong id="modalStageAndLga" class="text-slate-900 block">28 Weeks Pregnant • Obio-Akpor</strong>
+              <span id="modalSymptomsText" class="text-xs text-slate-600">Persistent fatigue, Pale conjunctiva/palms</span>
+            </div>
+            <span id="modalFacilityBadge" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200">
+              Elelenwo Central Model Primary Health Centre
+            </span>
           </div>
-          <span id="modalFacilityBadge" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200">
-            Elelenwo Primary Health Centre
-          </span>
+          <div id="modalFeelingNotesBox" class="hidden pt-2 border-t border-slate-200 text-xs text-emerald-950">
+            <strong class="text-[10px] uppercase tracking-wider text-emerald-800 block">Mother's Self-Reported Feeling Notes:</strong>
+            <span id="modalFeelingNotesText" class="italic text-slate-700"></span>
+          </div>
         </div>
 
         <!-- 1. Referral Attendance & Point-of-Care Testing -->
@@ -1121,8 +1309,8 @@
   <!-- CORE APPLICATION LOGIC                                                       -->
   <!-- ============================================================================ -->
   <script>
-    const STORAGE_KEY = 'MATERNALINK_PROD_V4_RECORDS';
-    const AUDIT_KEY = 'MATERNALINK_PROD_V4_AUDIT';
+    const STORAGE_KEY = 'MATERNALINK_PROD_V5_RECORDS';
+    const AUDIT_KEY = 'MATERNALINK_PROD_V5_AUDIT';
 
     // Comprehensive Directory of All 36 Nigerian States + FCT Abuja & Authentic LGAs
     const NIGERIA_STATES_LGAS = {
@@ -1165,134 +1353,166 @@
       "Zamfara": ["Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Gummi", "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara", "Chafe", "Zurmi"]
     };
 
-    // Participating Facilities Directory across Nigeria
-    const FACILITIES = [
-      {
-        id: 'FAC-RV-01',
-        name: 'Elelenwo Primary Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'Rivers',
-        lga: 'Obio-Akpor',
-        address: 'Elelenwo Station Road, Obio-Akpor, Rivers State',
-        phone: '+234 803 000 1004',
-        services: ['Antenatal & Postnatal Clinic', 'Point-of-Care PCV & Hb Testing', 'Iron-Folic Acid & IPTp Dispensing']
-      },
-      {
-        id: 'FAC-RV-02',
-        name: 'Orogbum Primary Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'Rivers',
-        lga: 'Port Harcourt City',
-        address: 'Orogbum Crescent, Diobu, Port Harcourt, Rivers State',
-        phone: '+234 803 000 1001',
-        services: ['Antenatal & Postnatal Clinic', 'Point-of-Care PCV & Hb Testing', 'Iron-Folic Acid & IPTp Dispensing']
-      },
-      {
-        id: 'FAC-RV-03',
-        name: 'Rivers State University Teaching Hospital (RSUTH)',
-        tier: 'CEmONC Referral Hospital',
-        state: 'Rivers',
-        lga: 'Port Harcourt City',
-        address: '6–8 Harley Street, Old GRA, Port Harcourt, Rivers State',
-        phone: '+234 803 000 1002',
-        services: ['24/7 Comprehensive Emergency Obstetrics', 'Blood Bank & Transfusion Unit', 'Specialist OB-GYN Escalation']
-      },
-      {
-        id: 'FAC-RV-04',
-        name: 'MaternalCare Community Pharmacy',
-        tier: 'Community Pharmacy',
-        state: 'Rivers',
-        lga: 'Obio-Akpor',
-        address: '142 Rumuola Road, Obio-Akpor, Rivers State',
-        phone: '+234 803 000 1003',
-        services: ['Pharmacist Maternal Anaemia Screening', 'Iron-Folic Acid (IFA) Refills', 'PHC & Hospital Referral Linkage']
-      },
-      {
-        id: 'FAC-LA-01',
-        name: 'Surulere Maternal & Child Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'Lagos',
-        lga: 'Surulere',
-        address: 'Randle Avenue, Surulere, Lagos State',
-        phone: '+234 803 000 2001',
-        services: ['Antenatal & Postnatal Care', 'Point-of-Care Haemoglobin & PCV Lab', 'Maternal Nutrition & IFA']
-      },
-      {
-        id: 'FAC-LA-02',
-        name: 'Lagos Island Maternity Hospital (LIMH)',
-        tier: 'CEmONC Referral Hospital',
-        state: 'Lagos',
-        lga: 'Lagos Island',
-        address: 'Campbell Street, Lagos Island, Lagos State',
-        phone: '+234 803 000 2002',
-        services: ['24/7 Emergency Obstetric Care (CEmONC)', 'High-Risk Pregnancy Unit', 'Blood Transfusion Services']
-      },
-      {
-        id: 'FAC-FC-01',
-        name: 'Garki Model Primary Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'FCT Abuja',
-        lga: 'Abuja Municipal Area Council (AMAC)',
-        address: 'Area 2, Garki, AMAC, FCT Abuja',
-        phone: '+234 803 000 3001',
-        services: ['Focused Antenatal Care', 'Rapid PCV & Malaria Screening', 'Postnatal Mother-Baby Follow-Up']
-      },
-      {
-        id: 'FAC-FC-02',
-        name: 'National Hospital Abuja (Maternal CEmONC Unit)',
-        tier: 'CEmONC Referral Hospital',
-        state: 'FCT Abuja',
-        lga: 'Abuja Municipal Area Council (AMAC)',
-        address: 'Central Business District, FCT Abuja',
-        phone: '+234 803 000 3002',
-        services: ['24/7 Comprehensive Emergency Obstetrics', 'Maternal Intensive Care', 'Haematology & Blood Bank']
-      },
-      {
-        id: 'FAC-KN-01',
-        name: 'Gwale Model Primary Health Care Centre',
-        tier: 'Primary Health Centre',
-        state: 'Kano',
-        lga: 'Gwale',
-        address: 'Gwale Road, Kano Metropolis, Kano State',
-        phone: '+234 803 000 4001',
-        services: ['Antenatal & Postnatal Clinic', 'Point-of-Care PCV & Haemoglobin Test', 'Free IFA Supplementation']
-      },
-      {
-        id: 'FAC-KN-02',
-        name: 'Murtala Muhammad Specialist Hospital',
-        tier: 'CEmONC Referral Hospital',
-        state: 'Kano',
-        lga: 'Kano Municipal',
-        address: 'Kofar Mata, Kano Municipal, Kano State',
-        phone: '+234 803 000 4002',
-        services: ['24/7 CEmONC Emergency Maternity', 'Eclampsia & Severe Anaemia Ward', 'Blood Bank']
-      },
-      {
-        id: 'FAC-EN-01',
-        name: 'Abakpa Nike Primary Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'Enugu',
-        lga: 'Enugu East',
-        address: 'Abakpa Nike, Enugu East, Enugu State',
-        phone: '+234 803 000 5001',
-        services: ['Antenatal & Postnatal Care', 'Rapid PCV Testing', 'Iron-Folic Acid & IPTp Care']
-      },
-      {
-        id: 'FAC-OY-01',
-        name: 'Idi-Ogungun Primary Health Centre',
-        tier: 'Primary Health Centre',
-        state: 'Oyo',
-        lga: 'Ibadan North',
-        address: 'Agodi Gate, Ibadan North, Oyo State',
-        phone: '+234 803 000 6001',
-        services: ['Maternal & Newborn Care', 'PCV & Malaria Rapid Testing', 'Community Outpost Linkage']
-      }
+    // Authentic Nigerian Mobile Prefixes for Realistic Phone Generation
+    const NG_MOBILE_PREFIXES = [
+      '803', '806', '813', '816', '703', '706', '802', '808',
+      '812', '805', '807', '815', '809', '817', '903', '906', '913'
     ];
+
+    // State Capital / Major Referral Hospital Anchor Names per State
+    const STATE_TERTIARY_HOSPITALS = {
+      "Abia": ["Federal Medical Centre, Umuahia", "Abia State University Teaching Hospital (ABSUTH), Aba"],
+      "Adamawa": ["Modibbo Adama University Teaching Hospital, Yola", "Adamawa State Specialist Hospital, Yola"],
+      "Akwa Ibom": ["University of Uyo Teaching Hospital (UUTH), Uyo", "Ibom Specialist & CEmONC Referral Hospital, Uyo"],
+      "Anambra": ["Nnamdi Azikiwe University Teaching Hospital (NAUTH), Nnewi", "Chukwuemeka Odumegwu Ojukwu University Teaching Hospital, Awka"],
+      "Bauchi": ["Abubakar Tafawa Balewa University Teaching Hospital (ATBUTH), Bauchi", "Bauchi State Specialist Hospital, Bauchi"],
+      "Bayelsa": ["Federal Medical Centre, Yenagoa", "Niger Delta University Teaching Hospital (NDUTH), Okolobiri"],
+      "Benue": ["Benue State University Teaching Hospital (BSUTH), Makurdi", "Federal Medical Centre, Makurdi"],
+      "Borno": ["University of Maiduguri Teaching Hospital (UMTH), Maiduguri", "Borno State Specialist Hospital, Maiduguri"],
+      "Cross River": ["University of Calabar Teaching Hospital (UCTH), Calabar", "General Hospital Calabar (Maternal CEmONC Wing)"],
+      "Delta": ["Delta State University Teaching Hospital (DELSUTH), Oghara", "Federal Medical Centre, Asaba"],
+      "Ebonyi": ["Alex Ekwueme Federal University Teaching Hospital (AEFUTHA), Abakaliki", "National Obstetric Fistula & Maternal Centre, Abakaliki"],
+      "Edo": ["University of Benin Teaching Hospital (UBTH), Benin City", "Irrua Specialist Teaching Hospital (ISTH), Irrua"],
+      "Ekiti": ["Ekiti State University Teaching Hospital (EKSUTH), Ado-Ekiti", "Federal Teaching Hospital, Ido-Ekiti"],
+      "Enugu": ["University of Nigeria Teaching Hospital (UNTH), Enugu", "Enugu State University Teaching Hospital (ESUT Parklane)"],
+      "FCT Abuja": ["National Hospital Abuja (Maternal CEmONC Unit)", "University of Abuja Teaching Hospital, Gwagwalada"],
+      "Gombe": ["Federal Teaching Hospital, Gombe", "Gombe State Specialist Hospital, Gombe"],
+      "Imo": ["Federal University Teaching Hospital, Owerri", "Imo State Specialist Hospital, Umuguma, Owerri"],
+      "Jigawa": ["Rasheed Shekoni Federal University Teaching Hospital, Dutse", "Dutse General & Maternal Referral Hospital"],
+      "Kaduna": ["Ahmadu Bello University Teaching Hospital (ABUTH), Zaria", "Barau Dikko Teaching Hospital, Kaduna"],
+      "Kano": ["Aminu Kano Teaching Hospital (AKTH), Kano", "Murtala Muhammad Specialist Hospital, Kano"],
+      "Katsina": ["Federal Teaching Hospital, Katsina", "General Amadi Rimi Specialist Hospital, Katsina"],
+      "Kebbi": ["Federal Medical Centre, Birnin Kebbi", "Sir Yahaya Memorial Specialist Hospital, Birnin Kebbi"],
+      "Kogi": ["Federal Teaching Hospital, Lokoja", "Kogi State Specialist Hospital, Lokoja"],
+      "Kwara": ["University of Ilorin Teaching Hospital (UITH), Ilorin", "Kwara State General & Maternal Hospital, Ilorin"],
+      "Lagos": ["Lagos Island Maternity Hospital (LIMH)", "Lagos University Teaching Hospital (LUTH), Idi-Araba"],
+      "Nasarawa": ["Federal University Teaching Hospital, Lafia", "Federal Medical Centre, Keffi"],
+      "Niger": ["Federal Medical Centre, Bida", "Ibrahim Badamasi Babangida Specialist Hospital, Minna"],
+      "Ogun": ["Olabisi Onabanjo University Teaching Hospital (OOUTH), Sagamu", "Federal Medical Centre, Idi-Aba, Abeokuta"],
+      "Ondo": ["University of Medical Sciences Teaching Hospital (UNIMEDTH), Akure", "Federal Medical Centre, Owo"],
+      "Osun": ["Obafemi Awolowo University Teaching Hospital (OAUTH), Ile-Ife", "Osun State University Teaching Hospital, Osogbo"],
+      "Oyo": ["University College Hospital (UCH), Ibadan", "Adeoyo Maternity Teaching Hospital, Yemetu, Ibadan"],
+      "Plateau": ["Jos University Teaching Hospital (JUTH), Jos", "Plateau State Specialist Hospital, Jos"],
+      "Rivers": ["Rivers State University Teaching Hospital (RSUTH), Port Harcourt", "University of Port Harcourt Teaching Hospital (UPTH)"],
+      "Sokoto": ["Usmanu Danfodiyo University Teaching Hospital (UDUTH), Sokoto", "Maryam Abacha Women & Children Hospital, Sokoto"],
+      "Taraba": ["Federal Medical Centre, Jalingo", "Taraba State Specialist Hospital, Jalingo"],
+      "Yobe": ["Yobe State University Teaching Hospital, Damaturu", "Federal Medical Centre, Nguru"],
+      "Zamfara": ["Federal Medical Centre, Gusau", "Ahmad Sani Yariman Bakura Specialist Hospital, Gusau"]
+    };
+
+    function generateRealisticNgPhone(seedIndex) {
+      const prefix = NG_MOBILE_PREFIXES[seedIndex % NG_MOBILE_PREFIXES.length];
+      const mid = String(234 + ((seedIndex * 73) % 745)).padStart(3, '0');
+      const last = String(1284 + ((seedIndex * 389) % 8615)).padStart(4, '0');
+      return `+234 ${prefix} ${mid} ${last}`;
+    }
+
+    function buildNationwideFacilitiesDirectory() {
+      const directory = [];
+      const states = Object.keys(NIGERIA_STATES_LGAS).sort();
+      let globalIdx = 1;
+
+      states.forEach((state, sIdx) => {
+        const lgas = NIGERIA_STATES_LGAS[state];
+        const stateCode = state === 'FCT Abuja' ? 'FC' : state.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase();
+        const tertiaryPair = STATE_TERTIARY_HOSPITALS[state] || [
+          `Federal Medical Centre, ${lgas[0]}`,
+          `${state} State Specialist Hospital, ${lgas[Math.min(1, lgas.length - 1)]}`
+        ];
+
+        const lga0 = lgas[0];
+        const lga1 = lgas[1 % lgas.length];
+        const lga2 = lgas[2 % lgas.length];
+        const lga3 = lgas[3 % lgas.length];
+        const lga4 = lgas[4 % lgas.length];
+        const lga5 = lgas[5 % lgas.length];
+        const lga6 = lgas[6 % lgas.length];
+        const lga7 = lgas[7 % lgas.length];
+
+        const stateTemplates = [
+          {
+            name: tertiaryPair[0],
+            tier: 'CEmONC Referral Hospital',
+            lga: lga0,
+            address: `Hospital Complex Road, ${lga0}, ${state}`,
+            services: ['24/7 Comprehensive Emergency Obstetrics', 'Blood Bank & Transfusion Unit', 'Specialist OB-GYN Escalation']
+          },
+          {
+            name: tertiaryPair[1],
+            tier: 'CEmONC Referral Hospital',
+            lga: lga1,
+            address: `Specialist Hospital Way, ${lga1}, ${state}`,
+            services: ['24/7 Emergency Obstetric Care (CEmONC)', 'High-Risk Pregnancy Unit', 'Haematology & Blood Transfusion']
+          },
+          {
+            name: `${lga2} Maternal & Child Referral Hospital`,
+            tier: 'CEmONC Referral Hospital',
+            lga: lga2,
+            address: `Maternity Hospital Road, ${lga2}, ${state}`,
+            services: ['24/7 Emergency Maternity Triage', 'Severe Anaemia & Eclampsia Ward', 'Point-of-Care STAT PCV Lab']
+          },
+          {
+            name: `${lga3} Central Model Primary Health Centre`,
+            tier: 'Primary Health Centre',
+            lga: lga3,
+            address: `Central Clinic Secretariat Road, ${lga3}, ${state}`,
+            services: ['Antenatal & Postnatal Clinic', 'Point-of-Care PCV & Hb Testing', 'Iron-Folic Acid & IPTp Dispensing']
+          },
+          {
+            name: `${lga4} Zonal Comprehensive Primary Health Centre`,
+            tier: 'Primary Health Centre',
+            lga: lga4,
+            address: `Health Centre Avenue, ${lga4}, ${state}`,
+            services: ['Focused Antenatal Care (ANC)', 'Rapid PCV & Malaria Screening', 'Skilled Birth Delivery Suite']
+          },
+          {
+            name: `${lga5} Ward Maternal & Newborn Primary Health Centre`,
+            tier: 'Primary Health Centre',
+            lga: lga5,
+            address: `Main Town Ward Clinic Road, ${lga5}, ${state}`,
+            services: ['Antenatal & Postnatal Care', 'Point-of-Care Haemoglobin & PCV Lab', 'Maternal Nutrition & IFA']
+          },
+          {
+            name: `${lga6} Community Health & Maternity Centre`,
+            tier: 'Primary Health Centre',
+            lga: lga6,
+            address: `Community Health Way, ${lga6}, ${state}`,
+            services: ['Maternal & Newborn Care', 'PCV & Malaria Rapid Testing', 'Community Outpost Linkage']
+          },
+          {
+            name: `MaternalCare Accredited Pharmacy (${lga7})`,
+            tier: 'Community Pharmacy',
+            lga: lga7,
+            address: `${14 + sIdx} Main Commercial Road, ${lga7}, ${state}`,
+            services: ['Pharmacist Maternal Anaemia Screening', 'Iron-Folic Acid (IFA) Refills', 'PHC & Hospital Referral Linkage']
+          }
+        ];
+
+        stateTemplates.forEach((tpl, fIdx) => {
+          directory.push({
+            id: `FAC-${stateCode}-0${fIdx + 1}`,
+            name: tpl.name,
+            tier: tpl.tier,
+            state: state,
+            lga: tpl.lga,
+            address: tpl.address,
+            phone: generateRealisticNgPhone(globalIdx),
+            services: tpl.services
+          });
+          globalIdx++;
+        });
+      });
+
+      return directory;
+    }
+
+    // 296 Participating Facilities Nationwide (8 per State across all 36 States + FCT Abuja)
+    const FACILITIES = buildNationwideFacilitiesDirectory();
 
     // Initial Realistic De-Identified Patient & Referral Cohort across Multiple Nigerian States
     const INITIAL_RECORDS = [
       {
-        id: 'ML-NG-2026-4812',
+        id: 'ML-NG-2026-48129',
         token: 'REF-739201',
         channel: 'CHW / Pharmacist Assisted',
         statusType: 'pregnant',
@@ -1302,14 +1522,15 @@
         parity: '1–2 Previous Births',
         state: 'Rivers',
         lga: 'Obio-Akpor',
-        phone: '08035550101',
+        phone: '0803 482 9174',
         language: 'Nigerian Pidgin',
         urgency: 'priority',
         symptoms: ['Persistent fatigue or physical weakness', 'Pale conjunctiva, palms, or nail beds'],
         dangerSigns: [],
+        feelingNotes: '',
         ancVisits: '1',
         ifaStatus: 'Not taking IFA',
-        facilityName: 'Elelenwo Primary Health Centre',
+        facilityName: 'Rivers State University Teaching Hospital (RSUTH), Port Harcourt',
         attendanceStatus: 'completed',
         pcvResult: 27.5,
         hbResult: 9.2,
@@ -1323,7 +1544,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4819',
+        id: 'ML-NG-2026-51904',
         token: 'REF-810442',
         channel: 'Self-Registered (Mother)',
         statusType: 'pregnant',
@@ -1333,14 +1554,15 @@
         parity: '3–4 Previous Births',
         state: 'Rivers',
         lga: 'Port Harcourt City',
-        phone: '08035550102',
+        phone: '0806 739 2841',
         language: 'English',
         urgency: 'emergency',
         symptoms: ['Frequent dizziness or lightheadedness'],
         dangerSigns: ['Severe headache with blurred vision'],
+        feelingNotes: '',
         ancVisits: '2-3',
         ifaStatus: 'Taking irregularly',
-        facilityName: 'Rivers State University Teaching Hospital (RSUTH)',
+        facilityName: 'Rivers State University Teaching Hospital (RSUTH), Port Harcourt',
         attendanceStatus: 'completed',
         pcvResult: 22.0,
         hbResult: 7.3,
@@ -1354,7 +1576,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4825',
+        id: 'ML-NG-2026-56382',
         token: 'REF-602198',
         channel: 'CHW / Pharmacist Assisted',
         statusType: 'pregnant',
@@ -1364,14 +1586,15 @@
         parity: 'First Pregnancy (Para 0)',
         state: 'Lagos',
         lga: 'Surulere',
-        phone: '08035550103',
+        phone: '0813 620 4918',
         language: 'Yoruba',
         urgency: 'priority',
         symptoms: ['Pale conjunctiva, palms, or nail beds', 'Pica cravings (clay/nzu, chalk, or ice)'],
         dangerSigns: [],
+        feelingNotes: '',
         ancVisits: '0',
         ifaStatus: 'Not taking IFA',
-        facilityName: 'Surulere Maternal & Child Health Centre',
+        facilityName: 'Lagos Island Maternity Hospital (LIMH)',
         attendanceStatus: 'pending',
         pcvResult: null,
         hbResult: null,
@@ -1385,7 +1608,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4831',
+        id: 'ML-NG-2026-60417',
         token: 'REF-519034',
         channel: 'Self-Registered (Mother)',
         statusType: 'postpartum',
@@ -1395,14 +1618,15 @@
         parity: '1–2 Previous Births',
         state: 'Enugu',
         lga: 'Enugu East',
-        phone: '08035550104',
+        phone: '0703 918 5427',
         language: 'Igbo',
         urgency: 'priority',
         symptoms: ['Persistent fatigue or physical weakness', 'Frequent dizziness or lightheadedness'],
         dangerSigns: [],
+        feelingNotes: '',
         ancVisits: '4+',
         ifaStatus: 'Taking irregularly',
-        facilityName: 'Abakpa Nike Primary Health Centre',
+        facilityName: 'Enugu North Central Model Primary Health Centre',
         attendanceStatus: 'completed',
         pcvResult: 29.0,
         hbResult: 9.7,
@@ -1416,7 +1640,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4840',
+        id: 'ML-NG-2026-63925',
         token: 'REF-330912',
         channel: 'CHW / Pharmacist Assisted',
         statusType: 'pregnant',
@@ -1426,11 +1650,12 @@
         parity: '5+ Previous Births',
         state: 'FCT Abuja',
         lga: 'Abuja Municipal Area Council (AMAC)',
-        phone: '08035550105',
+        phone: '0802 847 3196',
         language: 'English',
         urgency: 'emergency',
         symptoms: ['Shortness of breath on mild exertion', 'Persistent fatigue or physical weakness'],
         dangerSigns: ['Noticeably reduced fetal movement or premature fluid leakage'],
+        feelingNotes: '',
         ancVisits: '1',
         ifaStatus: 'Not taking IFA',
         facilityName: 'National Hospital Abuja (Maternal CEmONC Unit)',
@@ -1447,7 +1672,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4854',
+        id: 'ML-NG-2026-67218',
         token: 'REF-419823',
         channel: 'Self-Registered (Mother)',
         statusType: 'pregnant',
@@ -1457,14 +1682,15 @@
         parity: '1–2 Previous Births',
         state: 'Rivers',
         lga: 'Obio-Akpor',
-        phone: '08035550106',
+        phone: '0816 504 8273',
         language: 'English',
         urgency: 'routine',
         symptoms: [],
         dangerSigns: [],
+        feelingNotes: 'I feel active and strong today, just mild lower back tiredness in the evening and ready for my routine blood level check and iron supplement refill.',
         ancVisits: '2-3',
         ifaStatus: 'Taking daily',
-        facilityName: 'MaternalCare Community Pharmacy',
+        facilityName: 'MaternalCare Accredited Pharmacy (Degema)',
         attendanceStatus: 'completed',
         pcvResult: 35.0,
         hbResult: 11.7,
@@ -1478,7 +1704,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4867',
+        id: 'ML-NG-2026-70841',
         token: 'REF-904512',
         channel: 'CHW / Pharmacist Assisted',
         statusType: 'pregnant',
@@ -1488,14 +1714,15 @@
         parity: 'First Pregnancy (Para 0)',
         state: 'Oyo',
         lga: 'Ibadan North',
-        phone: '08035550107',
+        phone: '0805 391 6482',
         language: 'Yoruba',
         urgency: 'priority',
         symptoms: ['Persistent fatigue or physical weakness'],
         dangerSigns: [],
+        feelingNotes: '',
         ancVisits: '1',
         ifaStatus: 'Taking irregularly',
-        facilityName: 'Idi-Ogungun Primary Health Centre',
+        facilityName: 'Adeoyo Maternity Teaching Hospital, Yemetu, Ibadan',
         attendanceStatus: 'pending',
         pcvResult: null,
         hbResult: null,
@@ -1509,7 +1736,7 @@
         isRecentlyAdded: false
       },
       {
-        id: 'ML-NG-2026-4879',
+        id: 'ML-NG-2026-73195',
         token: 'REF-228710',
         channel: 'Self-Registered (Mother)',
         statusType: 'pregnant',
@@ -1519,14 +1746,15 @@
         parity: '1–2 Previous Births',
         state: 'Kano',
         lga: 'Gwale',
-        phone: '08035550108',
+        phone: '0903 748 1925',
         language: 'Hausa',
         urgency: 'priority',
         symptoms: ['Pale conjunctiva, palms, or nail beds', 'Shortness of breath on mild exertion'],
         dangerSigns: [],
+        feelingNotes: '',
         ancVisits: '1',
         ifaStatus: 'Not taking IFA',
-        facilityName: 'Gwale Model Primary Health Care Centre',
+        facilityName: 'Murtala Muhammad Specialist Hospital, Kano',
         attendanceStatus: 'pending',
         pcvResult: null,
         hbResult: null,
@@ -1542,18 +1770,20 @@
     ];
 
     const INITIAL_AUDIT_LOGS = [
-      { time: '2026-10-31 11:05', event: 'FOLLOWUP_DISPATCH', recordId: 'ML-NG-2026-4825', actor: 'CHW Boma Peters', detail: 'Sent Nigerian Pidgin WhatsApp appointment reminder' },
-      { time: '2026-10-31 09:15', event: 'MEDICAL_ESCALATION', recordId: 'ML-NG-2026-4819', actor: 'Midwife Ngozi Briggs (RSUTH)', detail: 'Logged PCV 22.0% and escalated to Senior Medical Officer' },
-      { time: '2026-10-30 14:20', event: 'LAB_TEST_RECORDED', recordId: 'ML-NG-2026-4812', actor: 'Elelenwo PHC Lab', detail: 'Recorded point-of-care PCV 27.5% (Hb 9.2 g/dL) & dispensed IFA' },
-      { time: '2026-10-29 16:40', event: 'REFERRAL_VERIFIED', recordId: 'ML-NG-2026-4831', actor: 'Orogbum PHC Desk', detail: 'Verified postnatal referral token REF-519034' }
+      { time: '2026-10-31 11:05', event: 'FOLLOWUP_DISPATCH', recordId: 'ML-NG-2026-56382', actor: 'CHW Boma Peters', detail: 'Sent Yoruba WhatsApp appointment reminder' },
+      { time: '2026-10-31 09:15', event: 'MEDICAL_ESCALATION', recordId: 'ML-NG-2026-51904', actor: 'Midwife Ngozi Briggs (RSUTH)', detail: 'Logged PCV 22.0% and escalated to Senior Medical Officer' },
+      { time: '2026-10-30 14:20', event: 'LAB_TEST_RECORDED', recordId: 'ML-NG-2026-48129', actor: 'RSUTH ANC Lab', detail: 'Recorded point-of-care PCV 27.5% (Hb 9.2 g/dL) & dispensed IFA' },
+      { time: '2026-10-29 16:40', event: 'REFERRAL_VERIFIED', recordId: 'ML-NG-2026-60417', actor: 'Enugu North PHC Desk', detail: 'Verified postnatal referral token REF-519034' }
     ];
 
     let appState = {
       records: [],
       auditLogs: [],
       draftIntake: null,
-      latestCreatedId: 'ML-NG-2026-4812',
-      activeCaseId: null
+      latestCreatedId: 'ML-NG-2026-48129',
+      activeCaseId: null,
+      facilitiesPageSize: 24,
+      facilitiesCurrentPage: 1
     };
 
     function initApp() {
@@ -1568,7 +1798,7 @@
       }
 
       populateNigerianStateSelectors();
-      populatePassFacilityDropdown();
+      populatePassFacilityDropdown('Rivers');
       generateNextPatientId();
       recalculateEddAndTrimester();
       updatePendingBadges();
@@ -1583,9 +1813,34 @@
 
       regStateSelect.innerHTML = states.map(st => `<option value="${st}" ${st === 'Rivers' ? 'selected' : ''}>${st}</option>`).join('');
       portalStateFilter.innerHTML = `<option value="all">All Nigerian States (36 + FCT)</option>` + states.map(st => `<option value="${st}">${st}</option>`).join('');
-      facilityStateFilter.innerHTML = `<option value="all">All States (Nationwide)</option>` + states.map(st => `<option value="${st}">${st}</option>`).join('');
+      facilityStateFilter.innerHTML = `<option value="all">All 36 States + FCT (${FACILITIES.length} Facilities)</option>` + states.map(st => `<option value="${st}">${st} State (8 Facilities)</option>`).join('');
+
+      const totalBadge = document.getElementById('facilitiesTotalBadge');
+      if (totalBadge) totalBadge.textContent = `${FACILITIES.length} Verified Facilities • 36 States + FCT`;
 
       handleRegistrationStateChange();
+    }
+
+    function clearFacilityFilters() {
+      const searchEl = document.getElementById('facilitySearchInput');
+      const stateEl = document.getElementById('facilityStateFilter');
+      const tierEl = document.getElementById('facilityTypeFilter');
+      if (searchEl) searchEl.value = '';
+      if (stateEl) stateEl.value = 'all';
+      if (tierEl) tierEl.value = 'all';
+      resetFacilityPageAndRender();
+    }
+
+    function clearPortalFilters() {
+      const searchEl = document.getElementById('portalSearchInput');
+      const stateEl = document.getElementById('portalStateFilter');
+      const urgencyEl = document.getElementById('portalUrgencyFilter');
+      const statusEl = document.getElementById('portalStatusFilter');
+      if (searchEl) searchEl.value = '';
+      if (stateEl) stateEl.value = 'all';
+      if (urgencyEl) urgencyEl.value = 'all';
+      if (statusEl) statusEl.value = 'all';
+      renderPortalQueue();
     }
 
     function handleRegistrationStateChange() {
@@ -1689,10 +1944,19 @@
     // VIEW 1: PATIENT REGISTRATION, SCREENING & DIGITAL REFERRAL PASS
     // ============================================================================
     function generateNextPatientId() {
-      const nextSerial = 4885 + appState.records.length;
-      const id = `ML-NG-2026-${nextSerial}`;
+      const randomFiveDigit = Math.floor(74100 + (appState.records.length * 317) + (Math.random() * 890));
+      const id = `ML-NG-2026-${randomFiveDigit}`;
       document.getElementById('regPatientIdDisplay').textContent = id;
       document.getElementById('step2PatientBadge').textContent = id;
+
+      // Also generate a fresh realistic Nigerian phone number for the intake form
+      const phoneInput = document.getElementById('regPhone');
+      if (phoneInput) {
+        const prefix = NG_MOBILE_PREFIXES[(appState.records.length + 3) % NG_MOBILE_PREFIXES.length];
+        const mid = String(318 + ((appState.records.length * 83) % 640)).padStart(3, '0');
+        const end = String(1492 + ((appState.records.length * 521) % 8100)).padStart(4, '0');
+        phoneInput.value = `0${prefix} ${mid} ${end}`;
+      }
     }
 
     function toggleChwFields() {
@@ -1782,8 +2046,105 @@
       goToIntakeStep(2);
     }
 
+    // Mutual intelligence for "None of the above" vs specific items in Sections A, B, C, and D
+    function handleNoneSymptomToggle(group) {
+      if (group === 'anaemia') {
+        const noneBox = document.getElementById('none_anaemia_chk');
+        const feelingBoxA = document.getElementById('section_a_feeling_box');
+        if (noneBox && noneBox.checked) {
+          document.querySelectorAll('.anaemia-chk').forEach(cb => { cb.checked = false; });
+          if (feelingBoxA) feelingBoxA.classList.remove('hidden');
+          const txtA = document.getElementById('feeling_notes_a');
+          if (txtA) txtA.focus();
+        } else if (feelingBoxA) {
+          feelingBoxA.classList.add('hidden');
+        }
+      } else if (group === 'danger') {
+        const noneDanger = document.getElementById('none_danger_chk');
+        const feelingBoxB = document.getElementById('section_b_feeling_box');
+        if (noneDanger && noneDanger.checked) {
+          document.querySelectorAll('.danger-chk').forEach(cb => { cb.checked = false; });
+          evaluateLiveWarningSigns();
+          if (feelingBoxB) feelingBoxB.classList.remove('hidden');
+          const txtB = document.getElementById('feeling_notes_b');
+          if (txtB) txtB.focus();
+        } else if (feelingBoxB) {
+          feelingBoxB.classList.add('hidden');
+        }
+      } else if (group === 'anc') {
+        const noneAnc = document.getElementById('none_anc_chk');
+        const feelingBoxC = document.getElementById('section_c_feeling_box');
+        if (noneAnc && noneAnc.checked) {
+          ['chk_anc_attended', 'chk_ifa_taken', 'chk_iptp_taken'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.checked = false;
+          });
+          const ancInput = document.getElementById('inp_anc_count');
+          const pcvInput = document.getElementById('inp_last_pcv');
+          if (ancInput) ancInput.value = '';
+          if (pcvInput) pcvInput.value = '';
+          if (feelingBoxC) feelingBoxC.classList.remove('hidden');
+          const txtC = document.getElementById('feeling_notes_c');
+          if (txtC) txtC.focus();
+        } else if (feelingBoxC) {
+          feelingBoxC.classList.add('hidden');
+        }
+      } else if (group === 'barrier') {
+        const noneBarrier = document.getElementById('none_barrier_chk');
+        const feelingBoxD = document.getElementById('section_d_feeling_box');
+        if (noneBarrier && noneBarrier.checked) {
+          document.querySelectorAll('.barrier-chk').forEach(cb => { cb.checked = false; });
+          if (feelingBoxD) feelingBoxD.classList.remove('hidden');
+          const txtD = document.getElementById('feeling_notes_d');
+          if (txtD) txtD.focus();
+        } else if (feelingBoxD) {
+          feelingBoxD.classList.add('hidden');
+        }
+      }
+    }
+
+    function handleSpecificSymptomToggle(group) {
+      if (group === 'anaemia') {
+        const anyChecked = Array.from(document.querySelectorAll('.anaemia-chk')).some(cb => cb.checked);
+        const noneBox = document.getElementById('none_anaemia_chk');
+        const feelingBoxA = document.getElementById('section_a_feeling_box');
+        if (anyChecked) {
+          if (noneBox) noneBox.checked = false;
+          if (feelingBoxA) feelingBoxA.classList.add('hidden');
+        }
+      } else if (group === 'danger') {
+        const anyDanger = Array.from(document.querySelectorAll('.danger-chk')).some(cb => cb.checked);
+        const noneDanger = document.getElementById('none_danger_chk');
+        const feelingBoxB = document.getElementById('section_b_feeling_box');
+        if (anyDanger) {
+          if (noneDanger) noneDanger.checked = false;
+          if (feelingBoxB) feelingBoxB.classList.add('hidden');
+        }
+        evaluateLiveWarningSigns();
+      } else if (group === 'anc') {
+        const ancChecked = ['chk_anc_attended', 'chk_ifa_taken', 'chk_iptp_taken'].some(id => document.getElementById(id)?.checked);
+        const ancCountVal = (document.getElementById('inp_anc_count')?.value || '').trim();
+        const pcvVal = (document.getElementById('inp_last_pcv')?.value || '').trim();
+        const hasAnyAncActivity = ancChecked || (ancCountVal !== '' && Number(ancCountVal) > 0) || pcvVal !== '';
+        const noneAnc = document.getElementById('none_anc_chk');
+        const feelingBoxC = document.getElementById('section_c_feeling_box');
+        if (hasAnyAncActivity) {
+          if (noneAnc) noneAnc.checked = false;
+          if (feelingBoxC) feelingBoxC.classList.add('hidden');
+        }
+      } else if (group === 'barrier') {
+        const anyBarrier = Array.from(document.querySelectorAll('.barrier-chk')).some(cb => cb.checked);
+        const noneBarrier = document.getElementById('none_barrier_chk');
+        const feelingBoxD = document.getElementById('section_d_feeling_box');
+        if (anyBarrier) {
+          if (noneBarrier) noneBarrier.checked = false;
+          if (feelingBoxD) feelingBoxD.classList.add('hidden');
+        }
+      }
+    }
+
     function evaluateLiveWarningSigns() {
-      const hasDanger = Array.from(document.querySelectorAll('.sym-danger')).some(cb => cb.checked);
+      const hasDanger = Array.from(document.querySelectorAll('.danger-chk')).some(cb => cb.checked);
       const box = document.getElementById('urgentWarningCallout');
       if (hasDanger) box.classList.remove('hidden');
       else box.classList.add('hidden');
@@ -1796,37 +2157,17 @@
         ? 'Primary Health Centre'
         : 'Community Pharmacy';
 
-      // 1. Check if there is an exact State + LGA + Tier match in directory
+      // 1. Check if there is an exact State + LGA + Tier match in the 296-facility directory
       let match = FACILITIES.find(f => f.state === state && f.lga === lga && f.tier === requiredTier);
-      // 2. Or same State + Tier
-      if (!match) match = FACILITIES.find(f => f.state === state && f.tier === requiredTier);
-      // 3. Or dynamically register a verified participating facility for the selected State & LGA
-      if (!match) {
-        const dynamicName = urgency === 'emergency'
-          ? `${lga} General & CEmONC Referral Hospital (${state})`
-          : urgency === 'priority'
-          ? `${lga} Model Primary Health Centre (${state})`
-          : `${lga} MaternalCare Community Pharmacy (${state})`;
-
-        let existingDynamic = FACILITIES.find(f => f.name === dynamicName);
-        if (!existingDynamic) {
-          existingDynamic = {
-            id: `FAC-${state.slice(0, 2).toUpperCase()}-${Math.floor(10 + Math.random() * 89)}`,
-            name: dynamicName,
-            tier: requiredTier,
-            state,
-            lga,
-            address: `Central Hospital Road, ${lga} LGA, ${state} State`,
-            phone: '+234 803 000 9100',
-            services: urgency === 'emergency'
-              ? ['24/7 Comprehensive Emergency Obstetrics', 'Blood Bank & Transfusion Unit', 'Specialist OB-GYN Escalation']
-              : ['Antenatal & Postnatal Clinic', 'Point-of-Care PCV & Hb Testing', 'Iron-Folic Acid & IPTp Dispensing']
-          };
-          FACILITIES.unshift(existingDynamic);
-          populatePassFacilityDropdown();
-        }
-        match = existingDynamic;
+      // 2. Or any participating facility in the exact State + LGA
+      if (!match && urgency !== 'emergency') {
+        match = FACILITIES.find(f => f.state === state && f.lga === lga);
       }
+      // 3. Or same State + required Tier (every State has 3 CEmONC hospitals, 4 PHCs, and 1 Pharmacy)
+      if (!match) match = FACILITIES.find(f => f.state === state && f.tier === requiredTier);
+      // 4. Fallback to first facility in that state
+      if (!match) match = FACILITIES.find(f => f.state === state) || FACILITIES[0];
+
       return match.name;
     }
 
@@ -1836,11 +2177,37 @@
         submitStep1Registration(new Event('submit'));
       }
 
-      const symptoms = Array.from(document.querySelectorAll('.sym-anaemia:checked')).map(i => i.value);
-      const dangerSigns = Array.from(document.querySelectorAll('.sym-danger:checked')).map(i => i.value);
-      const ancVisits = document.getElementById('scrAncVisits').value;
-      const priorPcv = parseFloat(document.getElementById('scrPriorPcv').value);
-      const ifaStatus = document.getElementById('scrIfaStatus').value;
+      const symptoms = Array.from(document.querySelectorAll('.anaemia-chk:checked')).map(i => i.value);
+      const dangerSigns = Array.from(document.querySelectorAll('.danger-chk:checked')).map(i => i.value);
+
+      const feelingNotesA = document.getElementById('none_anaemia_chk')?.checked
+        ? (document.getElementById('feeling_notes_a')?.value || '').trim()
+        : '';
+      const feelingNotesB = document.getElementById('none_danger_chk')?.checked
+        ? (document.getElementById('feeling_notes_b')?.value || '').trim()
+        : '';
+      const feelingNotesC = document.getElementById('none_anc_chk')?.checked
+        ? (document.getElementById('feeling_notes_c')?.value || '').trim()
+        : '';
+      const feelingNotesD = document.getElementById('none_barrier_chk')?.checked
+        ? (document.getElementById('feeling_notes_d')?.value || '').trim()
+        : '';
+
+      const combinedNotesParts = [];
+      if (feelingNotesA) combinedNotesParts.push(`Anaemia/Energy (Sec A): ${feelingNotesA}`);
+      if (feelingNotesB) combinedNotesParts.push(`Mother & Baby Wellbeing (Sec B): ${feelingNotesB}`);
+      if (feelingNotesC) combinedNotesParts.push(`ANC/Testing History (Sec C): ${feelingNotesC}`);
+      if (feelingNotesD) combinedNotesParts.push(`Clinic Access & Support (Sec D): ${feelingNotesD}`);
+      const feelingNotes = combinedNotesParts.join(' | ');
+
+      const noneAncSelected = !!document.getElementById('none_anc_chk')?.checked;
+      const ancAttended = !noneAncSelected && !!document.getElementById('chk_anc_attended')?.checked;
+      const ifaTaken = !noneAncSelected && !!document.getElementById('chk_ifa_taken')?.checked;
+      const iptpTaken = !noneAncSelected && !!document.getElementById('chk_iptp_taken')?.checked;
+      const rawAncCount = parseInt(document.getElementById('inp_anc_count')?.value, 10);
+      const ancVisitsCount = (!noneAncSelected && !isNaN(rawAncCount) && rawAncCount >= 0) ? String(rawAncCount) : '0';
+      const priorPcv = !noneAncSelected ? parseFloat(document.getElementById('inp_last_pcv')?.value) : NaN;
+      const ifaStatus = ifaTaken ? 'Taking daily' : 'Not taking IFA';
 
       // Non-Diagnostic Clinical Decision Support Logic
       let urgency = 'routine';
@@ -1848,8 +2215,10 @@
         urgency = 'emergency';
       } else if (
         symptoms.length > 0 ||
-        ancVisits === '0' ||
-        ifaStatus !== 'Taking daily' ||
+        noneAncSelected ||
+        !ancAttended ||
+        ancVisitsCount === '0' ||
+        !ifaTaken ||
         (!isNaN(priorPcv) && priorPcv < 33)
       ) {
         urgency = 'priority';
@@ -1857,7 +2226,7 @@
 
       const matchedFacility = matchFacilityForStateAndLga(appState.draftIntake.state, appState.draftIntake.lga, urgency);
 
-      const token = 'REF-' + Math.floor(100000 + Math.random() * 899999);
+      const token = 'REF-' + Math.floor(240000 + Math.random() * 749999);
       appState.records.forEach(r => r.isRecentlyAdded = false);
 
       const newRecord = {
@@ -1876,16 +2245,22 @@
         urgency,
         symptoms,
         dangerSigns,
-        ancVisits,
+        feelingNotes,
+        feelingNotesA,
+        feelingNotesB,
+        feelingNotesC,
+        feelingNotesD,
+        ancVisits: ancVisitsCount,
         ifaStatus,
+        iptpTaken,
         facilityName: matchedFacility,
         attendanceStatus: 'pending',
         pcvResult: !isNaN(priorPcv) ? priorPcv : null,
         hbResult: !isNaN(priorPcv) ? Number((priorPcv / 3).toFixed(1)) : null,
         ifaDispensed: false,
         escalated: urgency === 'emergency',
-        nextVisitDate: '2026-11-07',
-        clinicalNotes: '',
+        nextVisitDate: '2026-11-18',
+        clinicalNotes: feelingNotes ? `Mother reported: ${feelingNotes}` : '',
         followupCount: 0,
         lastFollowup: null,
         barriers: {
@@ -1907,9 +2282,21 @@
       showToast(`Referral Pass ${token} generated for ${newRecord.id}`);
     }
 
-    function populatePassFacilityDropdown() {
+    function populatePassFacilityDropdown(preferredState) {
       const select = document.getElementById('passChangeFacility');
-      select.innerHTML = FACILITIES.map(f => `<option value="${f.name}">${f.name} (${f.lga}, ${f.state})</option>`).join('');
+      if (!select) return;
+      const stateToPrioritize = preferredState || 'Rivers';
+      const inState = FACILITIES.filter(f => f.state === stateToPrioritize);
+      const otherStates = FACILITIES.filter(f => f.state !== stateToPrioritize);
+
+      select.innerHTML = `
+        <optgroup label="${stateToPrioritize} State Participating Facilities (${inState.length})">
+          ${inState.map(f => `<option value="${f.name}">${f.name} (${f.lga})</option>`).join('')}
+        </optgroup>
+        <optgroup label="Other States Nationwide (${otherStates.length})">
+          ${otherStates.map(f => `<option value="${f.name}">${f.name} (${f.lga}, ${f.state})</option>`).join('')}
+        </optgroup>
+      `;
     }
 
     function populateReferralPassView(rec) {
@@ -1920,7 +2307,19 @@
       document.getElementById('passLga').textContent = `${rec.lga}, ${rec.state || 'Rivers'}`;
       document.getElementById('passChannel').textContent = rec.channel;
       document.getElementById('passLang').textContent = rec.language;
+
+      populatePassFacilityDropdown(rec.state || 'Rivers');
       document.getElementById('passChangeFacility').value = rec.facilityName;
+
+      // Display Mother's Feeling Notes on Referral Pass if provided
+      const feelingBox = document.getElementById('passFeelingNotesBox');
+      const feelingText = document.getElementById('passFeelingNotesText');
+      if (rec.feelingNotes && rec.feelingNotes.trim().length > 0) {
+        feelingText.textContent = `"${rec.feelingNotes}"`;
+        feelingBox.classList.remove('hidden');
+      } else {
+        feelingBox.classList.add('hidden');
+      }
 
       updatePassFacilityDisplay(rec.facilityName);
 
@@ -1977,13 +2376,27 @@
     }
 
     function updatePassWhatsAppHref(rec) {
-      const msg = `MATERNALINK Health Referral Pass (${rec.token}) | Patient ID: ${rec.id} | Stage: ${rec.stageText} | Priority: ${rec.urgency.toUpperCase()} | Receiving Facility: ${rec.facilityName}.`;
-      const cleanPhone = (rec.phone || '2348030001001').replace(/[^0-9]/g, '');
+      const feelingNoteSnippet = rec.feelingNotes ? ` | Mother's Note: "${rec.feelingNotes}"` : '';
+      const msg = `MATERNALINK Health Referral Pass (${rec.token}) | Patient ID: ${rec.id} | Stage: ${rec.stageText} | Priority: ${rec.urgency.toUpperCase()} | Receiving Facility: ${rec.facilityName}${feelingNoteSnippet}.`;
+      let cleanPhone = (rec.phone || '08034829174').replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) cleanPhone = '234' + cleanPhone.slice(1);
       document.getElementById('passWhatsappBtn').href = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
     }
 
     function startNewPatientIntake() {
       generateNextPatientId();
+      ['none_anaemia_chk', 'none_danger_chk', 'none_anc_chk', 'none_barrier_chk'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.checked = false;
+      });
+      ['feeling_notes_a', 'feeling_notes_b', 'feeling_notes_c', 'feeling_notes_d'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      ['section_a_feeling_box', 'section_b_feeling_box', 'section_c_feeling_box', 'section_d_feeling_box'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
       goToIntakeStep(1);
     }
 
@@ -2039,7 +2452,9 @@
           : '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 font-bold text-[11px]">Pending Arrival</span>';
 
         const findingsList = [...r.dangerSigns, ...r.symptoms];
-        const findingsSummary = findingsList.length > 0 ? findingsList.slice(0, 2).join('; ') : 'Routine preventive screening';
+        const findingsSummary = findingsList.length > 0
+          ? findingsList.slice(0, 2).join('; ')
+          : (r.feelingNotes ? `Note: "${r.feelingNotes}"` : 'No listed symptoms (Routine checkup)');
 
         return `
           <tr class="hover:bg-slate-50/90 transition ${r.isRecentlyAdded ? 'row-highlight' : ''}">
@@ -2094,8 +2509,17 @@
       document.getElementById('modalToken').textContent = rec.token;
       document.getElementById('modalStageAndLga').textContent = `${rec.stageText} • ${rec.lga}, ${rec.state || 'Rivers'}`;
       const allSyms = [...rec.dangerSigns, ...rec.symptoms];
-      document.getElementById('modalSymptomsText').textContent = allSyms.length > 0 ? allSyms.join(' • ') : 'Routine antenatal checkup';
+      document.getElementById('modalSymptomsText').textContent = allSyms.length > 0 ? allSyms.join(' • ') : 'None of the listed symptoms checked';
       document.getElementById('modalFacilityBadge').textContent = rec.facilityName;
+
+      const feelingBox = document.getElementById('modalFeelingNotesBox');
+      const feelingText = document.getElementById('modalFeelingNotesText');
+      if (rec.feelingNotes && rec.feelingNotes.trim().length > 0) {
+        feelingText.textContent = `"${rec.feelingNotes}"`;
+        feelingBox.classList.remove('hidden');
+      } else {
+        feelingBox.classList.add('hidden');
+      }
 
       document.getElementById('modalAttendance').value = rec.attendanceStatus;
       document.getElementById('modalPcvInput').value = rec.pcvResult !== null ? rec.pcvResult : '';
@@ -2154,7 +2578,8 @@
       const message = templates[lang] || templates['English'];
       document.getElementById('modalReminderPreview').textContent = message;
 
-      const cleanPhone = (rec.phone || '2348030001001').replace(/[^0-9]/g, '');
+      let cleanPhone = (rec.phone || '08034829174').replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) cleanPhone = '234' + cleanPhone.slice(1);
       document.getElementById('modalWhatsappLink').href = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
     }
 
@@ -2210,18 +2635,101 @@
     }
 
     // ============================================================================
-    // VIEW 3: PARTICIPATING FACILITIES DIRECTORY
+    // VIEW 3: PARTICIPATING FACILITIES DIRECTORY (296 HOSPITALS NATIONWIDE)
     // ============================================================================
+    function resetFacilityPageAndRender() {
+      appState.facilitiesCurrentPage = 1;
+      renderFacilitiesDirectory();
+    }
+
+    function changeFacilitiesPage(delta) {
+      appState.facilitiesCurrentPage = Math.max(1, appState.facilitiesCurrentPage + delta);
+      renderFacilitiesDirectory();
+      const sectionEl = document.getElementById('view-facilities');
+      if (sectionEl) sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function selectFacilityFromDirectory(facilityName) {
+      const rec = appState.records.find(r => r.id === appState.latestCreatedId);
+      if (rec) {
+        rec.facilityName = facilityName;
+        persistState();
+        populateReferralPassView(rec);
+      }
+      showToast(`Selected ${facilityName} as receiving facility`);
+    }
+
     function renderFacilitiesDirectory() {
+      const searchQuery = (document.getElementById('facilitySearchInput')?.value || '').toLowerCase().trim();
       const stateFilter = document.getElementById('facilityStateFilter') ? document.getElementById('facilityStateFilter').value : 'all';
       const tierFilter = document.getElementById('facilityTypeFilter').value;
-      const list = FACILITIES.filter(f => {
+
+      const filteredList = FACILITIES.filter(f => {
         if (stateFilter !== 'all' && f.state !== stateFilter) return false;
         if (tierFilter !== 'all' && f.tier !== tierFilter) return false;
+        if (searchQuery) {
+          const hay = `${f.name} ${f.lga} ${f.state} ${f.tier} ${f.id} ${f.address}`.toLowerCase();
+          if (!hay.includes(searchQuery)) return false;
+        }
         return true;
       });
 
-      document.getElementById('facilitiesGrid').innerHTML = list.map(f => {
+      const pageSize = stateFilter !== 'all' ? filteredList.length || 8 : appState.facilitiesPageSize;
+      const totalPages = Math.max(1, Math.ceil(filteredList.length / pageSize));
+      if (appState.facilitiesCurrentPage > totalPages) {
+        appState.facilitiesCurrentPage = totalPages;
+      }
+
+      const startIndex = (appState.facilitiesCurrentPage - 1) * pageSize;
+      const visibleSlice = filteredList.slice(startIndex, startIndex + pageSize);
+
+      const showingLabel = document.getElementById('facilitiesShowingCount');
+      const pageIndicator = document.getElementById('facilitiesPageIndicator');
+      const prevBtn = document.getElementById('facilitiesPrevBtn');
+      const nextBtn = document.getElementById('facilitiesNextBtn');
+
+      if (showingLabel) {
+        if (filteredList.length === 0) {
+          showingLabel.textContent = 'No matching facilities found';
+        } else {
+          showingLabel.textContent = `Showing ${startIndex + 1}–${startIndex + visibleSlice.length} of ${filteredList.length} participating facilities (${FACILITIES.length} nationwide across 36 States + FCT)`;
+        }
+      }
+      if (pageIndicator) {
+        pageIndicator.textContent = `Page ${appState.facilitiesCurrentPage} of ${totalPages}`;
+      }
+      if (prevBtn) prevBtn.disabled = appState.facilitiesCurrentPage <= 1;
+      if (nextBtn) nextBtn.disabled = appState.facilitiesCurrentPage >= totalPages;
+
+      const gridEl = document.getElementById('facilitiesGrid');
+      if (visibleSlice.length === 0) {
+        gridEl.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl p-10 text-center border border-slate-200 text-slate-500 font-semibold">
+            No participating healthcare facilities match your search filter. Try selecting "All 36 States + FCT" or clearing the search box.
+          </div>
+        `;
+        return;
+      }
+
+      // Group visible facilities by State with clean non-overlapping section headers
+      let htmlParts = [];
+      let lastRenderedState = null;
+
+      visibleSlice.forEach(f => {
+        if (f.state !== lastRenderedState) {
+          lastRenderedState = f.state;
+          const totalInState = FACILITIES.filter(item => item.state === f.state).length;
+          htmlParts.push(`
+            <div class="col-span-full pt-2 pb-1 flex flex-wrap items-center justify-between gap-2 border-b border-slate-200">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-700"></span>
+                <h2 class="text-base sm:text-lg font-extrabold text-slate-900">${f.state} State Participating Care Network</h2>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200">${totalInState} Verified Facilities in ${f.state}</span>
+            </div>
+          `);
+        }
+
         const activeCount = appState.records.filter(r => r.facilityName === f.name).length;
         const tierBadge = f.tier === 'CEmONC Referral Hospital'
           ? 'bg-rose-50 text-rose-900 border-rose-200'
@@ -2229,35 +2737,60 @@
           ? 'bg-emerald-50 text-emerald-900 border-emerald-200'
           : 'bg-indigo-50 text-indigo-900 border-indigo-200';
 
-        return `
-          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs flex flex-col justify-between space-y-4">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-md border ${tierBadge}">${f.tier}</span>
-                <span class="font-mono text-[11px] font-bold text-slate-400">${f.id}</span>
+        const cleanWaPhone = f.phone.replace(/[^0-9]/g, '');
+        const waMsg = encodeURIComponent(`Hello ${f.name} (${f.lga}, ${f.state}), contacting via MATERNALINK Health regarding maternal screening & referral intake.`);
+        const safeName = f.name.replace(/'/g, "\\'");
+
+        htmlParts.push(`
+          <article style="box-sizing: border-box; position: relative; overflow: hidden; min-width: 0;" class="flex flex-col justify-between p-5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-emerald-600/60 transition">
+            <div>
+              <!-- 1. Top Badge Row -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-md border ${tierBadge}">${f.tier}</span>
+                <span class="text-[11px] font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700">${f.state} • ${f.lga}</span>
               </div>
-              <h3 class="text-base font-extrabold text-slate-900">${f.name}</h3>
-              <p class="text-xs text-slate-500 flex items-center gap-1.5">
-                <i class="fa-solid fa-location-dot text-emerald-700"></i>
-                <span>${f.address} (${f.lga}, ${f.state})</span>
+
+              <!-- 2. Facility Name -->
+              <h3 class="text-base font-bold text-slate-900 leading-snug mb-2 break-words">${f.name}</h3>
+
+              <!-- 3. Street Address & LGA -->
+              <p class="text-xs text-slate-600 mb-4 break-words flex items-start gap-1.5">
+                <i class="fa-solid fa-location-dot text-emerald-700 mt-0.5 shrink-0"></i>
+                <span>${f.address} (${f.lga} LGA, ${f.state})</span>
               </p>
-              <div class="pt-1 space-y-1">
+
+              <!-- 4. Clinical Capabilities Chips -->
+              <div class="flex flex-wrap gap-1.5 mb-4">
                 ${f.services.map(s => `
-                  <div class="text-xs text-slate-700 flex items-center gap-2">
-                    <i class="fa-solid fa-check text-emerald-600 text-[10px]"></i>
+                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-50 text-slate-700 border border-slate-200/90">
+                    <i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i>
                     <span>${s}</span>
-                  </div>
+                  </span>
                 `).join('')}
               </div>
             </div>
 
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="font-semibold text-slate-600"><i class="fa-solid fa-phone text-slate-400 mr-1"></i>${f.phone}</span>
-              <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 font-bold">${activeCount} Active Referrals</span>
+            <!-- 5. Bottom Contact Footer -->
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div>
+                <span class="font-mono font-bold text-slate-800 block"><i class="fa-solid fa-phone text-emerald-700 mr-1.5"></i>${f.phone}</span>
+                <span class="text-[11px] text-slate-500 font-medium">${f.id} • ${activeCount} Active Referrals</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="selectFacilityFromDirectory('${safeName}')" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 font-bold text-[11px] border border-slate-200 transition">
+                  Select
+                </button>
+                <a href="https://wa.me/${cleanWaPhone}?text=${waMsg}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-[11px] inline-flex items-center gap-1 transition">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
-          </div>
-        `;
-      }).join('');
+          </article>
+        `);
+      });
+
+      gridEl.innerHTML = htmlParts.join('');
     }
 
     // ============================================================================
@@ -2342,6 +2875,11 @@
         'State',
         'LGA',
         'Triage_Priority',
+        'SecA_Anaemia_Feeling_Notes',
+        'SecB_Warning_Feeling_Notes',
+        'SecC_NoTest_ANC_Notes',
+        'SecD_Barrier_Support_Notes',
+        'Combined_Mother_Notes',
         'Assigned_Facility',
         'Attendance_Status',
         'Tested_PCV_Percent',
@@ -2365,6 +2903,11 @@
         `"${r.state || 'Rivers'}"`,
         `"${r.lga}"`,
         r.urgency.toUpperCase(),
+        `"${(r.feelingNotesA || '').replace(/"/g, '""')}"`,
+        `"${(r.feelingNotesB || '').replace(/"/g, '""')}"`,
+        `"${(r.feelingNotesC || '').replace(/"/g, '""')}"`,
+        `"${(r.feelingNotesD || '').replace(/"/g, '""')}"`,
+        `"${(r.feelingNotes || '').replace(/"/g, '""')}"`,
         `"${r.facilityName}"`,
         r.attendanceStatus.toUpperCase(),
         r.pcvResult !== null ? r.pcvResult : '',
