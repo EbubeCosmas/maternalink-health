@@ -29,10 +29,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Brand / Logo -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchTab('home')">
-                    <div class="h-10 w-10 sm:h-12 sm:w-12 bg-emerald-800 rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl mr-3">M</div>
-                    <span class="font-extrabold text-lg sm:text-xl tracking-tight text-emerald-900 hidden sm:block">MATERNALINK</span>
-                </div>
+            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchTab('home')">
+             <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/f_auto/q_auto/Maternal_logo_olpcjd.jpg" alt="MATERNALINK Logo" class="h-10 w-auto mr-2">
+             <span class="font-extrabold text-lg sm:text-xl tracking-tight text-emerald-900 hidden sm:block">MATERNALINK</span>
+            </div>
 
                 <!-- Desktop Navigation: Logged OUT State -->
                 <nav id="nav-logged-out" class="hidden md:flex items-center space-x-1">
@@ -194,37 +194,56 @@
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                                <div class="bg-slate-200 h-48 w-full flex items-center justify-center text-slate-400 text-sm font-semibold">PICTURE 1</div>
-                                <div class="p-6">
+                            <!-- Item 1 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+                                <div class="h-48 w-full overflow-hidden bg-slate-200">
+                                    <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/1001971288_vdhbuq.jpg" alt="Maternal Health Documentation" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                </div>
+                                <div class="p-6 flex-grow">
                                     <h3 class="text-xl font-bold text-slate-900 mb-2">Maternal Health Documentation</h3>
                                     <p class="text-slate-600">Supporting the organisation and documentation of relevant maternal health information throughout the care journey.</p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                                <div class="bg-slate-200 h-48 w-full flex items-center justify-center text-slate-400 text-sm font-semibold">PICTURE 2</div>
-                                <div class="p-6">
+                            
+                            <!-- Item 2 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+                                <div class="h-48 w-full overflow-hidden bg-slate-200">
+                                    <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/1001971293_pygo8h.jpg" alt="Appointment and Follow up Support" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                </div>
+                                <div class="p-6 flex-grow">
                                     <h3 class="text-xl font-bold text-slate-900 mb-2">Appointment and Follow up Support</h3>
                                     <p class="text-slate-600">Helping mothers keep track of scheduled appointments and important follow up activities.</p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                                <div class="bg-slate-200 h-48 w-full flex items-center justify-center text-slate-400 text-sm font-semibold">PICTURE 3</div>
-                                <div class="p-6">
+
+                            <!-- Item 3 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+                                <div class="h-48 w-full overflow-hidden bg-slate-200">
+                                    <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/1001971270_x1ecu5.jpg" alt="Reliable Maternal Health Information" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                </div>
+                                <div class="p-6 flex-grow">
                                     <h3 class="text-xl font-bold text-slate-900 mb-2">Reliable Maternal Health Information</h3>
                                     <p class="text-slate-600">Supporting access to understandable maternal health information during pregnancy and postpartum recovery.</p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col lg:col-start-1 lg:col-end-2 lg:translate-x-1/2">
-                                <div class="bg-slate-200 h-48 w-full flex items-center justify-center text-slate-400 text-sm font-semibold">PICTURE 4</div>
-                                <div class="p-6">
+
+                            <!-- Item 4 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow lg:col-start-1 lg:col-end-2 lg:translate-x-1/2">
+                                <div class="h-48 w-full overflow-hidden bg-slate-200">
+                                    <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/1001971241_vkhny1.jpg" alt="Referral and Care Coordination" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                </div>
+                                <div class="p-6 flex-grow">
                                     <h3 class="text-xl font-bold text-slate-900 mb-2">Referral and Care Coordination</h3>
                                     <p class="text-slate-600">Working towards better connections between mothers, healthcare providers and appropriate maternal healthcare services.</p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col lg:col-start-2 lg:col-end-3 lg:translate-x-1/2">
-                                <div class="bg-slate-200 h-48 w-full flex items-center justify-center text-slate-400 text-sm font-semibold">PICTURE 5</div>
-                                <div class="p-6">
+
+                            <!-- Item 5 -->
+                            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-md transition-shadow lg:col-start-2 lg:col-end-3 lg:translate-x-1/2">
+                                <div class="h-48 w-full overflow-hidden bg-slate-200">
+                                    <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/1001971305_y7duxr.jpg" alt="Postpartum Maternal Follow up" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                </div>
+                                <div class="p-6 flex-grow">
                                     <h3 class="text-xl font-bold text-slate-900 mb-2">Postpartum Maternal Follow up</h3>
                                     <p class="text-slate-600">Extending attention beyond childbirth to support maternal wellbeing during postpartum recovery.</p>
                                 </div>
@@ -590,8 +609,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-start gap-8">
             <div class="md:w-1/3">
                 <div class="flex items-center mb-4">
-                    <div class="h-8 w-8 bg-emerald-800 rounded-full flex items-center justify-center text-white font-bold mr-2">M</div>
-                    <span class="font-bold text-white tracking-tight">MATERNALINK HEALTH</span>
+                   <img src="https://res.cloudinary.com/mlhepayp/image/upload/f_auto/q_auto/f_auto/q_auto/Maternal_logo_olpcjd.jpg" alt="MATERNALINK HEALTH Logo" class="h-10 w-10 mr-3 rounded-full border border-slate-700">
+                   <span class="font-bold text-white tracking-tight">MATERNALINK HEALTH</span>
                 </div>
                 <p class="text-sm italic">Connecting mothers to care at every step.</p>
             </div>
