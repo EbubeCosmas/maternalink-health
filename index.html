@@ -3,441 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATERNALINK HEALTH | Clinical Portal</title>
+    <title>MATERNALINK HEALTH | Connecting Mothers to Care at Every Step</title>
     
-    <!-- Inline SVG Favicon to fix 404 error -->
+    <!-- Inline SVG Favicon (Prevents /favicon.ico 404) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230D5C46'/><text x='50' y='65' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'>M</text></svg>">
-    <link rel="shortcut icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230D5C46'/><text x='50' y='65' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'>M</text></svg>">
-
-    <!-- Silence Tailwind CDN Production Warning -->
-    <script>
-        const originalWarn = console.warn;
-        console.warn = function() {
-            if (arguments[0] && typeof arguments[0] === 'string' && arguments[0].includes('cdn.tailwindcss.com should not be used in production')) return;
-            originalWarn.apply(console, arguments);
-        };
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .danger-alert { display: none; }
-        .danger-alert.active { display: block; }
+        .hero-bg {
+            background: linear-gradient(to right, rgba(13, 92, 70, 0.95), rgba(13, 92, 70, 0.8)), url('1001971288.jpg') center/cover no-repeat;
+        }
+        .section-bg { background-color: #f8fafc; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Clean Header with Logo -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <img src="watermarked_img_11556002349491639679.jpg" alt="MATERNALINK HEALTH" class="h-12 w-auto object-contain">
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand / Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchTab('home')">
+                    <img src="watermarked_img_11556002349491639679.jpg" alt="MATERNALINK HEALTH" class="h-16 w-auto object-contain">
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1">
+                    <button onclick="switchTab('home')" id="tab-btn-home" class="px-4 py-2 rounded-md text-sm font-medium text-emerald-800 bg-emerald-50 transition-colors">Home</button>
+                    <button onclick="switchTab('about')" id="tab-btn-about" class="px-4 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-colors">About Us</button>
+                    
+                    <!-- Platform Dropdown/Buttons -->
+                    <div class="ml-4 border-l border-slate-200 pl-4 flex space-x-2">
+                        <button onclick="switchTab('register')" id="tab-btn-register" class="bg-white border-2 border-emerald-700 text-emerald-700 hover:bg-emerald-50 px-5 py-2 rounded-md text-sm font-bold shadow-sm transition-all">Sign In</button>
+                        <button onclick="switchTab('register')" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2 rounded-md text-sm font-bold shadow-sm transition-all">Register Now</button>
+                    </div>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden items-center space-x-3">
+                    <button onclick="switchTab('register')" class="bg-emerald-700 text-white px-3 py-1.5 rounded text-xs font-bold shadow-sm">Platform Login</button>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-700 focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <nav class="flex gap-2 overflow-x-auto pb-1 sm:pb-0">
-                <button onclick="switchTab('checkin')" id="tab-btn-checkin" class="whitespace-nowrap px-4 py-2 rounded-md text-sm font-bold bg-emerald-100 text-emerald-900 border border-emerald-200">1. Mother Check-In</button>
-                <button onclick="switchTab('staff')" id="tab-btn-staff" class="whitespace-nowrap px-4 py-2 rounded-md text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-transparent">2. Clinic Staff & Facilities</button>
-                <button onclick="switchTab('impact')" id="tab-btn-impact" class="whitespace-nowrap px-4 py-2 rounded-md text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-transparent">3. Impact Summary</button>
-            </nav>
+        </div>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-4 pt-2 pb-4 space-y-1 shadow-inner">
+                <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-emerald-800 bg-emerald-50">Home</button>
+                <button onclick="switchTab('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">About Us</button>
+                <button onclick="switchTab('register'); toggleMobileMenu()" class="block w-full text-left px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-emerald-100 text-emerald-800">Go to Platform Registration</button>
+            </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 py-6 w-full">
-
-        <!-- =========================================================
-             TAB 1: MOTHER CHECK-IN & SCREENING
-        ========================================================== -->
-        <div id="tab-checkin" class="tab-content active">
-            <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-sm border border-slate-200" id="registration-form">
-                <h2 class="text-xl font-bold text-emerald-900 mb-4 border-b pb-2">Maternal Registration & Screening</h2>
-                
-                <!-- Registration Type Selector -->
-                <div class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
-                    <label class="block text-sm font-bold text-slate-800 mb-2">Who is filling this form?</label>
-                    <div class="flex gap-4">
-                        <label class="flex items-center gap-2 text-sm"><input type="radio" name="reg_type" value="self" checked onchange="toggleHWFields()"> I am registering myself</label>
-                        <label class="flex items-center gap-2 text-sm"><input type="radio" name="reg_type" value="assisted" onchange="toggleHWFields()"> I am a Health Worker helping a mother</label>
-                    </div>
-                    <div id="hw_fields" class="hidden mt-3 pt-3 border-t border-slate-200 grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="Health Worker Name/ID" class="border p-2 rounded text-sm w-full">
-                        <input type="text" placeholder="Community/Ward" class="border p-2 rounded text-sm w-full">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">State</label>
-                        <select id="state_select" class="w-full border p-2 rounded text-sm" onchange="updateLGAs()">
-                            <option value="">Select State</option>
-                            <option value="Abia">Abia</option>
-                            <option value="Delta">Delta</option>
-                            <option value="Lagos">Lagos</option>
-                            <option value="Rivers">Rivers</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">Local Government Area (LGA)</label>
-                        <select id="lga_select" class="w-full border p-2 rounded text-sm">
-                            <option value="">Select LGA</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">Gestational Age (Weeks)</label>
-                        <input type="number" class="w-full border p-2 rounded text-sm" placeholder="e.g. 26">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">Phone Number</label>
-                        <input type="tel" class="w-full border p-2 rounded text-sm" placeholder="e.g. 0803 000 0000">
+    <main class="flex-grow">
+        <!-- ==========================================
+             HOME TAB (Public Facing Public Page)
+        =========================================== -->
+        <div id="tab-home" class="tab-content active">
+            <!-- Hero Section -->
+            <div class="hero-bg relative">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 max-w-4xl drop-shadow-md">
+                        Connecting mothers to care at <span class="text-emerald-300">every step.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-emerald-50 max-w-2xl mb-10 leading-relaxed drop-shadow">
+                        A connected digital platform designed to support continuity of maternal care, reliable information, and timely follow-up during pregnancy and after childbirth.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <button onclick="switchTab('about')" class="bg-white text-emerald-900 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-emerald-50 transition-all border border-transparent">
+                            Learn About Our Solution
+                        </button>
+                        <button onclick="switchTab('register')" class="bg-emerald-800 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-emerald-900 border border-emerald-600 transition-all flex justify-center items-center gap-2">
+                            Access Platform
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <!-- SECTION A: ANAEMIA -->
-                <div class="mb-6">
-                    <h3 class="text-sm font-bold bg-slate-100 p-2 rounded text-slate-800">A. Anaemia Symptoms</h3>
-                    <div class="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anaemia-chk" onchange="checkNone('anaemia')"> Persistent fatigue</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anaemia-chk" onchange="checkNone('anaemia')"> Pale inner eyelids/palms</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anaemia-chk" onchange="checkNone('anaemia')"> Dizziness</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anaemia-chk" onchange="checkNone('anaemia')"> Craving clay/ice (Pica)</label>
+            <!-- Core Pillars Section -->
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-slate-900">Why MATERNALINK HEALTH?</h2>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">For many women, maternal healthcare can be fragmented. We bridge the gaps so mothers remain connected to appropriate care.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-slate-50 rounded-xl p-8 border border-slate-100 shadow-sm text-center">
+                            <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-7 h-7 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Continuity of Care</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Maternal healthcare should not end when a woman leaves a facility. We support continuous connection throughout pregnancy and postpartum recovery.</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl p-8 border border-slate-100 shadow-sm text-center">
+                            <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-7 h-7 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Timely Follow-Up</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Helping mothers keep track of scheduled appointments and important follow-up activities, extending attention beyond childbirth.</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-xl p-8 border border-slate-100 shadow-sm text-center">
+                            <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-7 h-7 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Care Coordination</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Working towards better connections between mothers, healthcare providers, and appropriate maternal healthcare referral services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick CTA -->
+            <div class="bg-emerald-900 py-12">
+                <div class="max-w-5xl mx-auto px-4 text-center">
+                    <h2 class="text-2xl font-bold text-white mb-6">Ready to access the MATERNALINK platform?</h2>
+                    <button onclick="switchTab('register')" class="bg-white text-emerald-900 font-bold px-8 py-3 rounded-lg shadow hover:bg-emerald-50 transition-colors">
+                        Register or Sign In Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             ABOUT US TAB
+        =========================================== -->
+        <div id="tab-about" class="tab-content section-bg">
+            <!-- Header -->
+            <div class="bg-emerald-800 text-white py-16">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h1 class="text-4xl font-extrabold mb-4">About Us</h1>
+                    <p class="text-xl text-emerald-100">Who we are and why MATERNALINK HEALTH exists.</p>
+                </div>
+            </div>
+
+            <!-- 2. About Company -->
+            <div class="py-16 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="prose prose-emerald prose-lg max-w-none text-slate-600">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6 border-b pb-2">About MATERNALINK HEALTH TECHNOLOGIES</h2>
+                        <p>MATERNALINK HEALTH is a Nigerian maternal health technology company developing a connected digital platform to support continuity of maternal care during pregnancy and after childbirth.</p>
+                        <p>We recognise that maternal healthcare should not end when a woman leaves a healthcare facility after an appointment. Mothers need reliable information, appropriate follow up, access to healthcare services and a clear connection to support when concerns arise.</p>
+                        <p>We are building a platform designed to strengthen the connection between mothers, healthcare providers and maternal healthcare facilities.</p>
+                        <p>Our work is focused on improving maternal care coordination, supporting timely follow up and helping address gaps in the maternal healthcare journey, particularly in underserved communities.</p>
+                        <p class="font-semibold text-emerald-800 text-xl border-l-4 border-emerald-500 pl-4 py-1 my-6 bg-emerald-50">We believe every mother deserves to remain connected to the care she needs throughout pregnancy and postpartum recovery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Mission & Vision -->
+            <div class="py-16 bg-slate-50 border-y border-slate-200">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-emerald-100 p-2 rounded-lg">
+                                    <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900">Our Mission</h3>
+                            </div>
+                            <p class="text-slate-600 text-lg leading-relaxed">To strengthen continuity of maternal care by connecting pregnant and postpartum women with reliable information, appropriate healthcare services, timely follow up and referral support.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="bg-emerald-100 p-2 rounded-lg">
+                                    <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900">Our Vision</h3>
+                            </div>
+                            <p class="text-slate-600 text-lg leading-relaxed">A future where every mother can remain connected to the care and support she needs throughout pregnancy and postpartum recovery, regardless of where she lives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. The Problem -->
+            <div class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2">
+                            <img src="1001971288.jpg" alt="Healthcare provider discussing with pregnant mother" class="rounded-xl shadow-md w-full object-cover h-80">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-3xl font-bold text-slate-900 mb-6">The Problem We Are Addressing</h2>
+                            <h3 class="text-xl font-semibold text-emerald-800 mb-4">Why MATERNALINK HEALTH TECHNOLOGIES?</h3>
+                            <div class="space-y-4 text-slate-600 text-lg">
+                                <p>For many women, maternal healthcare can be fragmented. Follow up after antenatal visits may be inconsistent, important health information may be difficult to access, and referral pathways may not always be clear.</p>
+                                <p>These gaps can make it difficult for mothers to remain connected to appropriate care, particularly in underserved communities.</p>
+                                <p>MATERNALINK HEALTH is being developed to help address these challenges by supporting better maternal health information, follow up and coordination throughout pregnancy and after childbirth.</p>
+                                <p class="font-medium text-slate-800">We believe that continuity of care is an essential part of protecting maternal wellbeing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Our Solution -->
+            <div class="py-16 bg-slate-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Solution</h2>
+                        <p class="text-xl text-slate-600 uppercase tracking-wider font-semibold">What the platform is being developed to support</p>
+                    </div>
+
+                    <div class="space-y-16">
+                        <!-- PICTURE 1 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="md:w-1/3">
+                                <img src="1001971256.jpg" alt="Maternal Health Documentation" class="rounded-xl shadow w-full object-cover aspect-square">
+                            </div>
+                            <div class="md:w-2/3">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 text-emerald-800">Maternal Health Documentation</h3>
+                                <p class="text-lg text-slate-600">Supporting the organisation and documentation of relevant maternal health information throughout the care journey.</p>
+                            </div>
+                        </div>
+
+                        <!-- PICTURE 2 -->
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="md:w-1/3">
+                                <img src="1001971293.jpg" alt="Appointment and Follow up Support" class="rounded-xl shadow w-full object-cover aspect-square">
+                            </div>
+                            <div class="md:w-2/3 md:text-right">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 text-emerald-800">Appointment and Follow up Support</h3>
+                                <p class="text-lg text-slate-600">Helping mothers keep track of scheduled appointments and important follow up activities.</p>
+                            </div>
+                        </div>
+
+                        <!-- PICTURE 3 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="md:w-1/3">
+                                <img src="1001971246.jpg" alt="Reliable Maternal Health Information" class="rounded-xl shadow w-full object-cover aspect-square">
+                            </div>
+                            <div class="md:w-2/3">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 text-emerald-800">Reliable Maternal Health Information</h3>
+                                <p class="text-lg text-slate-600">Supporting access to understandable maternal health information during pregnancy and postpartum recovery.</p>
+                            </div>
+                        </div>
+
+                        <!-- PICTURE 4 -->
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="md:w-1/3">
+                                <img src="1001971241.jpg" alt="Referral and Care Coordination" class="rounded-xl shadow w-full object-cover aspect-square">
+                            </div>
+                            <div class="md:w-2/3 md:text-right">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 text-emerald-800">Referral and Care Coordination</h3>
+                                <p class="text-lg text-slate-600">Working towards better connections between mothers, healthcare providers and appropriate maternal healthcare services.</p>
+                            </div>
+                        </div>
+
+                        <!-- PICTURE 5 -->
+                        <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="md:w-1/3">
+                                <img src="1001971229.jpg" alt="Postpartum Maternal Follow up" class="rounded-xl shadow w-full object-cover aspect-square">
+                            </div>
+                            <div class="md:w-2/3">
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3 text-emerald-800">Postpartum Maternal Follow up</h3>
+                                <p class="text-lg text-slate-600">Extending attention beyond childbirth to support maternal wellbeing during postpartum recovery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Who We Serve & 7. Our Approach -->
+            <div class="py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         
-                        <label class="flex items-center gap-2 font-bold text-emerald-700 mt-2 col-span-full border-t pt-2">
-                            <input type="checkbox" id="none_anaemia_chk" onchange="toggleFeelingBox('anaemia')"> None of the above anaemia symptoms
-                        </label>
-                    </div>
-                    <div id="section_a_feeling_box" class="hidden px-3 pb-3">
-                        <textarea class="w-full border border-emerald-300 rounded p-2 text-sm bg-emerald-50" rows="2" placeholder="How are you feeling today? Describe how you feel in your own words..."></textarea>
+                        <!-- Who We Serve -->
+                        <div>
+                            <h2 class="text-3xl font-bold text-slate-900 mb-6 border-b pb-2">Who We Serve</h2>
+                            <p class="text-lg text-slate-600 mb-6">MATERNALINK HEALTH is being developed to support:</p>
+                            
+                            <ul class="space-y-6">
+                                <li class="flex gap-4">
+                                    <div class="mt-1 bg-emerald-100 p-1.5 rounded text-emerald-700 h-fit"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">Pregnant Women</h4>
+                                        <p class="text-slate-600 mt-1">Women who need accessible maternal health information, organised care support and better connections to healthcare services.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="mt-1 bg-emerald-100 p-1.5 rounded text-emerald-700 h-fit"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">Postpartum Mothers</h4>
+                                        <p class="text-slate-600 mt-1">Women who need continued attention, follow-up and appropriate support after childbirth.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="mt-1 bg-emerald-100 p-1.5 rounded text-emerald-700 h-fit"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">Maternal Healthcare Providers and Facilities</h4>
+                                        <p class="text-slate-600 mt-1">Healthcare professionals and facilities that may benefit from improved maternal care documentation, follow up and coordination.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="mt-1 bg-emerald-100 p-1.5 rounded text-emerald-700 h-fit"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-lg">Public Health Agencies and Development Organisations</h4>
+                                        <p class="text-slate-600 mt-1">Institutions and organisations working to strengthen maternal healthcare delivery and improve maternal health outcomes.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Our Approach -->
+                        <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                            <h2 class="text-3xl font-bold text-slate-900 mb-6">Our Approach</h2>
+                            <h3 class="text-xl font-semibold text-emerald-800 mb-4">Building Better Connections in Maternal Healthcare</h3>
+                            
+                            <div class="text-slate-600 text-lg space-y-4">
+                                <p>We believe that improving maternal healthcare requires more than providing information. It requires strengthening the connections between mothers, healthcare providers and the services available to them.</p>
+                                <p>Our approach is centred on:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Supporting continuity of care throughout pregnancy and postpartum recovery.</li>
+                                    <li>Encouraging timely maternal health follow up.</li>
+                                    <li>Improving access to reliable maternal health information.</li>
+                                    <li>Supporting referral and coordination pathways.</li>
+                                    <li>Developing solutions that respond to the realities of underserved communities.</li>
+                                </ul>
+                                <div class="mt-6 p-4 bg-emerald-100 rounded-lg text-emerald-900 font-medium">
+                                    We are starting with a proposed pilot in Delta State, Nigeria, with the long-term goal of expanding our reach to other states in Nigeria and Africa as the platform develops and is validated.
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
 
-                <!-- SECTION B: DANGER SIGNS -->
-                <div class="mb-6 border border-red-200 rounded overflow-hidden">
-                    <h3 class="text-sm font-bold bg-red-50 text-red-900 p-2">B. Danger Signs</h3>
-                    <div class="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-red-900">
-                        <label class="flex items-center gap-2"><input type="checkbox" class="danger-chk" onchange="checkDanger()"> Vaginal bleeding</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="danger-chk" onchange="checkDanger()"> Severe headache</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="danger-chk" onchange="checkDanger()"> Convulsions</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="danger-chk" onchange="checkDanger()"> Reduced baby movement</label>
+            <!-- 8. About the Founder -->
+            <div class="py-16 bg-emerald-900 text-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/3">
+                            <img src="1001971270.jpg" alt="Healthcare Professional" class="rounded-xl shadow-lg border-4 border-emerald-700 w-full object-cover">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-3xl font-bold mb-2">About the Founder</h2>
+                            <h3 class="text-xl font-medium text-emerald-300 mb-6">Founded with a Commitment to Maternal Wellbeing</h3>
+                            
+                            <div class="space-y-4 text-emerald-50 text-lg">
+                                <p>MATERNALINK HEALTH TECHNOLOGIES was founded by a Nigerian licensed pharmacist with a Doctor of Pharmacy degree from the University of Benin and approximately seven years of experience in both hospital and community pharmacy practice.</p>
+                                <p>Her professional experience has strengthened her interest in accessible healthcare, patient support and continuity of care.</p>
+                                <p>The idea behind MATERNALINK HEALTH is driven by the recognition that mothers need more than occasional healthcare visits. They need reliable information, appropriate follow up and connections to care throughout pregnancy and after childbirth.</p>
+                                <p>Through MATERNALINK HEALTH, she is working to develop a practical, technology enabled approach to strengthening maternal healthcare coordination, beginning in Nigeria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Contact Us -->
+            <div class="py-16 bg-white">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Contact Us</h2>
+                    <h3 class="text-xl font-semibold text-emerald-800 mb-6">Connect With MATERNALINK HEALTH</h3>
+                    
+                    <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">We welcome conversations with healthcare professionals, maternal healthcare facilities, public health agencies, development organisations, potential partners and individuals interested in strengthening maternal healthcare.<br><br>Whether you are interested in collaboration, facility engagement, partnerships or learning more about our work, we would love to hear from you.</p>
+
+                    <div class="bg-slate-50 rounded-xl p-8 border border-slate-200 inline-block text-left shadow-sm">
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-center gap-4">
+                                <div class="bg-emerald-100 p-2 rounded-full text-emerald-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                <div><span class="font-bold text-slate-800">Email:</span> <a href="mailto:Maternalhealth@yahoo.com" class="text-emerald-700 hover:underline">Maternalhealth@yahoo.com</a></div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="bg-emerald-100 p-2 rounded-full text-emerald-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                                <div><span class="font-bold text-slate-800">Phone:</span> <a href="tel:+2349021401496" class="text-emerald-700 hover:underline">+234 902 140 1496</a></div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="bg-emerald-100 p-2 rounded-full text-emerald-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                                <div><span class="font-bold text-slate-800">Location:</span> Delta State, Nigeria</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p class="mt-8 text-xl font-bold text-emerald-800 italic">Connecting mothers to care at every step.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             REGISTER / SIGN IN TAB (The Platform Area placeholder based on previous logic)
+        =========================================== -->
+        <div id="tab-register" class="tab-content bg-slate-50 py-16">
+            <div class="max-w-3xl mx-auto px-4">
+                <div class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+                    <div class="bg-emerald-800 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-white">MATERNALINK Platform Access</h2>
+                        <p class="text-emerald-100 mt-2 text-sm">Secure Portal for Mothers, Health Workers & Partners</p>
+                    </div>
+                    <div class="p-8 text-center space-y-6">
+                        <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-lg text-sm text-left">
+                            <p class="font-bold mb-1">Notice: Separate Platform Domain</p>
+                            <p>You are currently viewing the MATERNALINK HEALTH company website. The active clinical screening, registration, and facility portal is securely hosted on our dedicated platform infrastructure.</p>
+                        </div>
                         
-                        <label class="flex items-center gap-2 font-bold text-slate-700 mt-2 col-span-full border-t pt-2">
-                            <input type="checkbox" id="none_danger_chk" onchange="toggleFeelingBox('danger')"> None of the above danger signs
-                        </label>
+                        <p class="text-slate-600 mb-6">If you are a mother looking to register, or a healthcare worker accessing the facility queue, please proceed to the secure platform login.</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-8 py-3 rounded shadow-sm w-full sm:w-auto">
+                                Go to Platform Login / Registration
+                            </button>
+                        </div>
                     </div>
-                    <div id="danger-alert-banner" class="danger-alert bg-red-600 text-white p-3 text-sm font-bold text-center">
-                        EMERGENCY: Proceed to a hospital immediately.
-                    </div>
-                    <div id="section_b_feeling_box" class="hidden px-3 pb-3">
-                        <textarea class="w-full border border-slate-300 rounded p-2 text-sm bg-slate-50" rows="2" placeholder="Describe any other pains or concerns..."></textarea>
-                    </div>
-                </div>
-
-                <!-- SECTION C: ANC -->
-                <div class="mb-6">
-                    <h3 class="text-sm font-bold bg-slate-100 p-2 rounded text-slate-800">C. Antenatal Care (ANC) & Tests</h3>
-                    <div class="p-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anc-chk" onchange="checkNone('anc')"> Attended ANC Clinic</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" class="anc-chk" onchange="checkNone('anc')"> Taking Iron/Folic Acid</label>
-                        <label class="flex items-center gap-2 font-bold text-emerald-700 col-span-full border-t pt-2">
-                            <input type="checkbox" id="none_anc_chk" onchange="toggleFeelingBox('anc')"> None — I have not attended ANC or taken supplements
-                        </label>
-                    </div>
-                    <div id="section_c_feeling_box" class="hidden px-3 pb-3">
-                        <textarea class="w-full border border-emerald-300 rounded p-2 text-sm bg-emerald-50" rows="2" placeholder="Let us know why, or how we can help..."></textarea>
-                    </div>
-                </div>
-
-                <button onclick="generateReferral()" class="w-full bg-emerald-700 text-white font-bold py-3 rounded-lg shadow hover:bg-emerald-800">Generate Referral Pass</button>
-            </div>
-
-            <!-- Referral Pass (Hidden by default) -->
-            <div id="referral-pass" class="hidden max-w-md mx-auto bg-white rounded-xl shadow-lg border border-emerald-200 overflow-hidden mt-6">
-                <div class="bg-emerald-800 p-4 text-center">
-                    <img src="watermarked_img_11556002349491639679.jpg" alt="Logo" class="h-10 mx-auto mb-2 bg-white p-1 rounded">
-                    <h3 class="text-white font-bold text-lg">Digital Referral Pass</h3>
-                    <p class="text-emerald-200 text-xs">ID: ML-NG-2026-9842</p>
-                </div>
-                <div class="p-6 text-center space-y-4">
-                    <div class="w-32 h-32 bg-slate-100 mx-auto border-4 border-white shadow flex items-center justify-center text-xs text-slate-400">QR CODE</div>
-                    <div>
-                        <p class="text-sm text-slate-600 uppercase font-bold">Recommended Facility</p>
-                        <p class="text-lg font-bold text-emerald-900">General Hospital, Asaba</p>
-                        <p class="text-sm text-slate-600">Delta State</p>
-                        <p class="text-sm font-bold text-slate-800 mt-2">Phone: 0803 123 4567</p>
-                    </div>
-                    <button onclick="location.reload()" class="mt-4 text-emerald-700 text-sm font-bold underline">Start New Registration</button>
                 </div>
             </div>
         </div>
 
-        <!-- =========================================================
-             TAB 2: CLINIC STAFF & FACILITIES DIRECTORY
-        ========================================================== -->
-        <div id="tab-staff" class="tab-content">
-            
-            <!-- Full Width 12-Column Responsive Filter Toolbar -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                    <div>
-                        <h2 class="text-xl font-bold text-emerald-900">Participating Facilities Directory</h2>
-                        <p class="text-sm text-slate-600">296 Verified Facilities • 36 States + FCT</p>
-                    </div>
-                    <button class="px-3 py-1 bg-slate-100 text-slate-600 rounded text-sm font-medium hover:bg-slate-200">Reset Filters</button>
-                </div>
-                
-                <!-- The 12-Column Non-Overlapping Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 w-full box-border min-w-0">
-                    <div class="lg:col-span-5">
-                        <input type="text" placeholder="Search hospital, LGA, or Address..." class="w-full border border-slate-300 p-2.5 rounded-lg text-sm bg-slate-50 focus:outline-none focus:border-emerald-500">
-                    </div>
-                    <div class="lg:col-span-4">
-                        <select class="w-full border border-slate-300 p-2.5 rounded-lg text-sm bg-slate-50 focus:outline-none focus:border-emerald-500">
-                            <option>All 36 States + FCT</option>
-                            <option>Delta State (8 Facilities)</option>
-                            <option>Rivers State (8 Facilities)</option>
-                            <option>Lagos State (8 Facilities)</option>
-                        </select>
-                    </div>
-                    <div class="lg:col-span-3">
-                        <select class="w-full border border-slate-300 p-2.5 rounded-lg text-sm bg-slate-50 focus:outline-none focus:border-emerald-500">
-                            <option>All Facility Tiers</option>
-                            <option>Primary Health Centres (PHC)</option>
-                            <option>General Hospitals</option>
-                            <option>CEmONC Referral</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Responsive Facility Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-                <!-- Facility Card 1 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col box-border relative min-w-0">
-                    <div class="bg-emerald-800 p-3 text-white">
-                        <span class="text-xs font-bold uppercase tracking-wider bg-emerald-700 px-2 py-1 rounded">Delta State</span>
-                    </div>
-                    <div class="p-5 flex-grow space-y-3">
-                        <h3 class="font-bold text-lg text-slate-900 leading-tight">Asaba Specialist Hospital</h3>
-                        <p class="text-sm text-slate-600 flex items-start gap-2">
-                            <svg class="w-4 h-4 mt-0.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-                            Oshimili South LGA, Asaba
-                        </p>
-                        <p class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                            0803 123 4567
-                        </p>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded border border-slate-200">CEmONC</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded border border-slate-200">Lab Capacity</span>
-                        </div>
-                    </div>
-                    <div class="p-4 bg-slate-50 border-t border-slate-100">
-                        <button class="w-full bg-emerald-100 text-emerald-800 font-bold py-2 rounded text-sm hover:bg-emerald-200 transition-colors">Manage Queue</button>
-                    </div>
-                </div>
-
-                <!-- Facility Card 2 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col box-border relative min-w-0">
-                    <div class="bg-emerald-800 p-3 text-white">
-                        <span class="text-xs font-bold uppercase tracking-wider bg-emerald-700 px-2 py-1 rounded">Rivers State</span>
-                    </div>
-                    <div class="p-5 flex-grow space-y-3">
-                        <h3 class="font-bold text-lg text-slate-900 leading-tight">Orogbum Primary Health Centre</h3>
-                        <p class="text-sm text-slate-600 flex items-start gap-2">
-                            <svg class="w-4 h-4 mt-0.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-                            Port Harcourt LGA, Diobu
-                        </p>
-                        <p class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                            0816 987 6543
-                        </p>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded border border-slate-200">PHC</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded border border-slate-200">ANC</span>
-                        </div>
-                    </div>
-                    <div class="p-4 bg-slate-50 border-t border-slate-100">
-                        <button class="w-full bg-emerald-100 text-emerald-800 font-bold py-2 rounded text-sm hover:bg-emerald-200 transition-colors">Manage Queue</button>
-                    </div>
-                </div>
-
-                <!-- Facility Card 3 -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col box-border relative min-w-0">
-                    <div class="bg-emerald-800 p-3 text-white">
-                        <span class="text-xs font-bold uppercase tracking-wider bg-emerald-700 px-2 py-1 rounded">Lagos State</span>
-                    </div>
-                    <div class="p-5 flex-grow space-y-3">
-                        <h3 class="font-bold text-lg text-slate-900 leading-tight">Mainland Maternal Hospital</h3>
-                        <p class="text-sm text-slate-600 flex items-start gap-2">
-                            <svg class="w-4 h-4 mt-0.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-                            Lagos Mainland LGA, Yaba
-                        </p>
-                        <p class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
-                            0903 555 1234
-                        </p>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded border border-slate-200">General Hospital</span>
-                        </div>
-                    </div>
-                    <div class="p-4 bg-slate-50 border-t border-slate-100">
-                        <button class="w-full bg-emerald-100 text-emerald-800 font-bold py-2 rounded text-sm hover:bg-emerald-200 transition-colors">Manage Queue</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pagination -->
-            <div class="mt-8 flex justify-center gap-2">
-                <button class="px-4 py-2 border rounded text-sm text-slate-600 hover:bg-slate-100">Previous</button>
-                <button class="px-4 py-2 border rounded text-sm bg-emerald-700 text-white font-bold">1</button>
-                <button class="px-4 py-2 border rounded text-sm text-slate-600 hover:bg-slate-100">2</button>
-                <button class="px-4 py-2 border rounded text-sm text-slate-600 hover:bg-slate-100">3</button>
-                <button class="px-4 py-2 border rounded text-sm text-slate-600 hover:bg-slate-100">Next</button>
-            </div>
-        </div>
-
-        <!-- =========================================================
-             TAB 3: IMPACT & ANALYTICS
-        ========================================================== -->
-        <div id="tab-impact" class="tab-content">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-slate-800">Impact Dashboard</h2>
-                <button class="bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 shadow-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Export CSV Report
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
-                    <div class="text-3xl font-extrabold text-emerald-700">1,482</div>
-                    <div class="text-xs text-slate-500 uppercase font-bold mt-1">Mothers Registered</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
-                    <div class="text-3xl font-extrabold text-emerald-700">1,205</div>
-                    <div class="text-xs text-slate-500 uppercase font-bold mt-1">Referrals Generated</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
-                    <div class="text-3xl font-extrabold text-emerald-700">84%</div>
-                    <div class="text-xs text-slate-500 uppercase font-bold mt-1">Clinic Attendance Rate</div>
-                </div>
-                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm text-center">
-                    <div class="text-3xl font-extrabold text-emerald-700">92%</div>
-                    <div class="text-xs text-slate-500 uppercase font-bold mt-1">Follow-Up Rate</div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <h3 class="font-bold text-lg text-slate-800 mb-4">Top Healthcare Access Barriers</h3>
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex justify-between text-sm mb-1"><span class="font-bold text-slate-700">Financial Cost</span><span class="text-slate-500">68%</span></div>
-                        <div class="w-full bg-slate-100 rounded-full h-2.5"><div class="bg-emerald-500 h-2.5 rounded-full" style="width: 68%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-1"><span class="font-bold text-slate-700">Distance / Transport</span><span class="text-slate-500">45%</span></div>
-                        <div class="w-full bg-slate-100 rounded-full h-2.5"><div class="bg-emerald-500 h-2.5 rounded-full" style="width: 45%"></div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <!-- Footer with ONLY the Clinical Notice -->
-    <footer class="bg-slate-900 text-slate-400 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 py-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3">Disclaimer</h4>
-                <div class="text-xs space-y-2 leading-relaxed">
+    <!-- Footer with Important Pages & Disclaimer -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-emerald-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <img src="watermarked_img_11556002349491639679.jpg" alt="MATERNALINK HEALTH" class="h-12 w-auto object-contain mb-4 bg-white p-1 rounded">
+                    <p class="text-sm text-slate-400 mb-4 max-w-sm">Connecting pregnant and postpartum women with reliable information, appropriate healthcare services, timely follow up and referral support.</p>
+                    <p class="text-emerald-400 font-medium">Connecting mothers to care at every step.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Important Pages</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Terms and Conditions</a></li>
+                        <li><a href="#" onclick="switchTab('about'); window.scrollTo(0, document.body.scrollHeight);" class="hover:text-emerald-400 transition-colors">Contact Information</a></li>
+                        <li><a href="#disclaimer" class="hover:text-emerald-400 transition-colors">Medical Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Delta State, Nigeria</li>
+                        <li><a href="mailto:Maternalhealth@yahoo.com" class="hover:text-emerald-400">Maternalhealth@yahoo.com</a></li>
+                        <li><a href="tel:+2349021401496" class="hover:text-emerald-400">+234 902 140 1496</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Medical Disclaimer Section -->
+            <div id="disclaimer" class="bg-slate-800 p-6 rounded-lg border border-slate-700 mb-8">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    Disclaimer
+                </h4>
+                <div class="text-xs text-slate-400 space-y-2 leading-relaxed">
                     <p>MATERNALINK HEALTH TECHNOLOGIES, maternal care support platform under development. It is intended to complement, not replace, professional healthcare services.</p>
                     <p>The platform does not provide a medical diagnosis or replace consultation with qualified healthcare professionals.</p>
                     <p>It is not an emergency medical service.</p>
                     <p class="text-white font-medium">Users experiencing urgent or emergency symptoms should seek immediate medical attention.</p>
                 </div>
             </div>
+
+            <div class="text-center text-xs text-slate-500 pt-8 border-t border-slate-800">
+                &copy; 2026 MATERNALINK HEALTH TECHNOLOGIES. All rights reserved.
+            </div>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
+    <!-- Simple Tab Switcher Logic -->
     <script>
-        // Tab Switching
         function switchTab(tabId) {
+            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Reset nav buttons
             document.querySelectorAll('nav button').forEach(btn => {
-                btn.classList.remove('bg-emerald-100', 'text-emerald-900', 'border-emerald-200');
-                btn.classList.add('bg-white', 'text-slate-600', 'border-transparent');
+                if(btn.id !== 'tab-btn-register') {
+                    btn.classList.remove('text-emerald-800', 'bg-emerald-50');
+                    btn.classList.add('text-slate-600');
+                }
             });
+            
+            // Show active tab
             document.getElementById('tab-' + tabId).classList.add('active');
-            document.getElementById('tab-btn-' + tabId).classList.add('bg-emerald-100', 'text-emerald-900', 'border-emerald-200');
-            document.getElementById('tab-btn-' + tabId).classList.remove('bg-white', 'text-slate-600', 'border-transparent');
-        }
-
-        // Toggle Health Worker Fields
-        function toggleHWFields() {
-            const isAssisted = document.querySelector('input[name="reg_type"]:checked').value === 'assisted';
-            document.getElementById('hw_fields').style.display = isAssisted ? 'grid' : 'none';
-        }
-
-        // Check Danger Signs for Banner Alert
-        function checkDanger() {
-            const dangerChecked = Array.from(document.querySelectorAll('.danger-chk')).some(cb => cb.checked);
-            const noneDanger = document.getElementById('none_danger_chk').checked;
             
-            if (dangerChecked) {
-                document.getElementById('danger-alert-banner').classList.add('active');
-                document.getElementById('none_danger_chk').checked = false;
-                document.getElementById('section_b_feeling_box').classList.add('hidden');
-            } else {
-                document.getElementById('danger-alert-banner').classList.remove('active');
+            // Highlight active button (if it's not the register CTA)
+            const activeBtn = document.getElementById('tab-btn-' + tabId);
+            if(activeBtn && tabId !== 'register') {
+                activeBtn.classList.remove('text-slate-600');
+                activeBtn.classList.add('text-emerald-800', 'bg-emerald-50');
             }
-        }
 
-        // Toggle "None of the above" behavior
-        function toggleFeelingBox(section) {
-            const noneCheckbox = document.getElementById('none_' + section + '_chk');
-            const feelingBox = document.getElementById('section_' + section.charAt(0) + '_feeling_box'); // Maps 'anaemia' to 'a', 'danger' to 'b', etc
-            
-            if (noneCheckbox.checked) {
-                // Uncheck all items in that specific section
-                document.querySelectorAll('.' + section + '-chk').forEach(cb => cb.checked = false);
-                // Hide alert if it's the danger section
-                if(section === 'danger') document.getElementById('danger-alert-banner').classList.remove('active');
-                // Show the text box
-                feelingBox.classList.remove('hidden');
-            } else {
-                feelingBox.classList.add('hidden');
-            }
-        }
-
-        // If a specific item is checked, uncheck the "None" box
-        function checkNone(section) {
-            document.getElementById('none_' + section + '_chk').checked = false;
-            document.getElementById('section_' + section.charAt(0) + '_feeling_box').classList.add('hidden');
-        }
-
-        // Generate Referral Action
-        function generateReferral() {
-            document.getElementById('registration-form').classList.add('hidden');
-            document.getElementById('referral-pass').classList.remove('hidden');
+            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Dynamic State/LGA logic
-        const lgas = {
-            'Abia': ['Aba North', 'Aba South', 'Arochukwu', 'Bende', 'Ikwuano', 'Isiala Ngwa North', 'Isiala Ngwa South', 'Isuikwuato', 'Obi Ngwa', 'Ohafia', 'Osisioma', 'Ugwunagbo', 'Ukwa East', 'Ukwa West', 'Umuahia North', 'Umuahia South', 'Umu Nneochi'],
-            'Delta': ['Aniocha North', 'Aniocha South', 'Bomadi', 'Burutu', 'Ethiope East', 'Ethiope West', 'Ika North East', 'Ika South', 'Isoko North', 'Isoko South', 'Ndokwa East', 'Ndokwa West', 'Okpe', 'Oshimili North', 'Oshimili South', 'Patani', 'Sapele', 'Udu', 'Ughelli North', 'Ughelli South', 'Ukwuani', 'Uvwie', 'Warri North', 'Warri South', 'Warri South West'],
-            'Lagos': ['Agege', 'Ajeromi-Ifelodun', 'Alimosho', 'Amuwo-Odofin', 'Apapa', 'Badagry', 'Epe', 'Eti Osa', 'Ibeju-Lekki', 'Ifako-Ijaiye', 'Ikeja', 'Ikorodu', 'Kosofe', 'Lagos Island', 'Lagos Mainland', 'Mushin', 'Ojo', 'Oshodi-Isolo', 'Shomolu', 'Surulere'],
-            'Rivers': ['Abua/Odual', 'Ahoada East', 'Ahoada West', 'Akuku-Toru', 'Andoni', 'Asari-Toru', 'Bonny', 'Degema', 'Eleme', 'Emuoha', 'Etche', 'Gokana', 'Ikwerre', 'Khana', 'Obio/Akpor', 'Ogba/Egbema/Ndoni', 'Ogu/Bolo', 'Okrika', 'Omuma', 'Opobo/Nkoro', 'Oyigbo', 'Port Harcourt', 'Tai']
-        };
-
-        function updateLGAs() {
-            const state = document.getElementById('state_select').value;
-            const lgaSelect = document.getElementById('lga_select');
-            lgaSelect.innerHTML = '<option value="">Select LGA</option>';
-            
-            if(state && lgas[state]) {
-                lgas[state].forEach(lga => {
-                    lgaSelect.innerHTML += `<option value="${lga}">${lga}</option>`;
-                });
-            }
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
         }
+        
+        mobileBtn.addEventListener('click', toggleMobileMenu);
     </script>
 </body>
 </html>
